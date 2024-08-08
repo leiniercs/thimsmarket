@@ -1,4 +1,4 @@
-# [SDL Platforms - Pay](https://pay.sdlplatforms.com) website
+# [Thims Market](https://thims.market) website
 
 ## Building and running
 
