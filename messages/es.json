@@ -1,0 +1,32 @@
+{
+   "metadata": {
+      "description": "La opción preferida para comprar criptomonedas con moneda fiduciaria y enviar remesas a los seres queridos.",
+      "keywords": "Pope Exchange, Pope, intercambio, remesas, criptomonedas, crypto"
+   },
+   "languages": {
+      "current-language": "Idioma actual",
+      "click-to-choose": "Clic para cambiar",
+      "language-selection": "Selección del idioma",
+      "en": "English",
+      "es": "Español"
+   },
+   "header": {
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú",
+      "logo": "Logotipo",
+      "menuitems": {
+         "home": "Inicio",
+         "projects": "Proyectos",
+         "contact": "Contacto"
+      },
+      "light": "Claro",
+      "dark": "Oscuro",
+      "current-theme": "Tema actual",
+      "click-to-toggle": "Haz clic para alternar",
+      "start": "Comenzar"
+   },
+   "home": {
+      "metadata": { "title": "Inicio" },
+      "products": { "add-to-cart": "Agregar al carro" }
+   }
+}

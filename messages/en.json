@@ -1,0 +1,32 @@
+{
+   "metadata": {
+      "description": "The preferred choice for buying crypto with fiat and sending remmittances to the beloved ones.",
+      "keywords": "Pope Exchange, Pope, exchange, remmittances, remmittance, remmittance, cryptocurrencies, cryptocurrency, cryptos, crypto"
+   },
+   "languages": {
+      "current-language": "Current language",
+      "click-to-choose": "Click to choose",
+      "language-selection": "Language selection",
+      "en": "English",
+      "es": "Español"
+   },
+   "header": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "logo": "Logo",
+      "menuitems": {
+         "home": "Home",
+         "projects": "Projects",
+         "contact": "Contact"
+      },
+      "light": "Light",
+      "dark": "Dark",
+      "current-theme": "Current theme",
+      "click-to-toggle": "Click to toggle",
+      "start": "Start"
+   },
+   "home": {
+      "metadata": { "title": "Home" },
+      "products": { "add-to-cart": "Add to cart" }
+   }
+}
