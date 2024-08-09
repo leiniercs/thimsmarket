@@ -44,11 +44,11 @@ export async function generateMetadata(): Promise<Metadata> {
       },
       category: "technology",
       robots: {
-         index: false,
-         follow: false,
+         index: true,
+         follow: true,
          googleBot: {
-            index: false,
-            follow: false
+            index: true,
+            follow: true
          }
       }
    };
