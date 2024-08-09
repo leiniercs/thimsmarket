@@ -35,6 +35,15 @@ async function downloadProduct(product) {
          `${process.env.THIMS_MARKET_PRODUCTS_PATH}/${product.slug}.zip`
       )
    ) {
+      const fetchThumbnail = await fetch(
+         `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
+         { method: "GET" }
+      );
+
+      if (fetchThumbnail.status !== 200) {
+         return false;
+      }
+
       const spawnResult = spawnSync(
          "git",
          [
@@ -50,15 +59,6 @@ async function downloadProduct(product) {
       );
 
       if (spawnResult.error) {
-         return false;
-      }
-
-      const fetchThumbnail = await fetch(
-         `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
-         { method: "GET" }
-      );
-
-      if (fetchThumbnail.status !== 200) {
          return false;
       }
 
