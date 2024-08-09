@@ -35,10 +35,16 @@ async function downloadProduct(product) {
          `${process.env.THIMS_MARKET_PRODUCTS_PATH}/${product.slug}.zip`
       )
    ) {
-      const fetchThumbnail = await fetch(
-         `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
-         { method: "GET" }
-      );
+      let fetchThumbnail;
+
+      try {
+         fetchThumbnail = await fetch(
+            `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
+            { method: "GET" }
+         );
+      } catch (e) {
+         return false;
+      }
 
       if (fetchThumbnail.status !== 200) {
          return false;
