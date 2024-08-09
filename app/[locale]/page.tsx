@@ -24,5 +24,5 @@ export async function generateMetadata(
 export default async function LocalePage({
    params: { locale }
 }: Readonly<CustomPageProps>) {
-   return <Products locale={locale} />;
+   return <Products locale={locale} basePath="/" />;
 }

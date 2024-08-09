@@ -7,7 +7,7 @@ interface CustomMetadataProps {
 }
 
 interface CustomPageProps {
-   params: { locale: string; page: string };
+   params: { locale: string; type: string; page: string };
 }
 
 export async function generateMetadata(
@@ -22,7 +22,14 @@ export async function generateMetadata(
 }
 
 export default async function LocalePage({
-   params: { locale, page }
+   params: { locale, type, page }
 }: Readonly<CustomPageProps>) {
-   return <Products locale={locale} basePath="/" page={page} />;
+   return (
+      <Products
+         locale={locale}
+         basePath={`/types/${type}`}
+         type={type}
+         page={page}
+      />
+   );
 }

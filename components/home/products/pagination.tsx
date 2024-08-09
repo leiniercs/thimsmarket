@@ -3,11 +3,13 @@ import { Pagination } from "@nextui-org/react";
 import { useRouter } from "@/components/common/navigation";
 
 interface CustomComponentProps {
+   basePath: string;
    page: number;
    pages: number;
 }
 
 export function ProductsPagination({
+   basePath,
    page,
    pages
 }: Readonly<CustomComponentProps>) {
@@ -23,9 +25,9 @@ export function ProductsPagination({
             total={pages}
             onChange={(page: number) => {
                if (page === 1) {
-                  push("/");
+                  push(basePath);
                } else {
-                  push(`/${page}`);
+                  push(`${basePath}/${page}`);
                }
             }}
          />

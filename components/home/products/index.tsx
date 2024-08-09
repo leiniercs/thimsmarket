@@ -15,6 +15,7 @@ import { ProductsPagination } from "@/components/home/products/pagination";
 
 interface CustomComponentProps {
    locale: string;
+   basePath: string;
    type?: string;
    category?: string;
    page?: string;
@@ -81,6 +82,7 @@ function ProductCard({
 
 export async function Products({
    locale,
+   basePath,
    type,
    category,
    page
@@ -98,7 +100,11 @@ export async function Products({
 
    return (
       <div className="flex flex-wrap justify-between gap-10">
-         <ProductsPagination page={Number(page || "0")} pages={totalProducts} />
+         <ProductsPagination
+            basePath={basePath}
+            page={Number(page || "0")}
+            pages={totalProducts}
+         />
          {products.map((product: any, index: number) => (
             <ProductCard
                key={index}
@@ -107,7 +113,11 @@ export async function Products({
                addToCart={tProducts("add-to-cart")}
             />
          ))}
-         <ProductsPagination page={Number(page || "0")} pages={totalProducts} />
+         <ProductsPagination
+            basePath={basePath}
+            page={Number(page || "0")}
+            pages={totalProducts}
+         />
       </div>
    );
 }

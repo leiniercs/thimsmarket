@@ -1,6 +1,13 @@
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import { Image, Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
+import {
+   Image,
+   Navbar,
+   NavbarBrand,
+   NavbarContent,
+   NavbarMenu
+} from "@nextui-org/react";
 import { LanguageSwitcher } from "@/components/header/language_switcher";
+import { NavigationItems } from "@/components/header/navigation_items";
 import { Link } from "@/components/common/navigation";
 
 interface CustomComponentProps {
@@ -30,10 +37,15 @@ export async function Header({ locale }: Readonly<CustomComponentProps>) {
                </Link>
             </NavbarBrand>
          </NavbarContent>
-         <NavbarContent justify="center"></NavbarContent>
+         <NavbarContent className="hidden sm:flex" justify="center">
+            <NavigationItems />
+         </NavbarContent>
          <NavbarContent justify="end">
             <LanguageSwitcher />
          </NavbarContent>
+         <NavbarMenu>
+            <NavigationItems isMenuItems={true} />
+         </NavbarMenu>
       </Navbar>
    );
 }

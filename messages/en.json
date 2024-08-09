@@ -16,8 +16,7 @@
       "logo": "Logo",
       "menuitems": {
          "home": "Home",
-         "projects": "Projects",
-         "contact": "Contact"
+         "website_themes": "Website Themes"
       },
       "light": "Light",
       "dark": "Dark",

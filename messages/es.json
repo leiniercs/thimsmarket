@@ -16,8 +16,7 @@
       "logo": "Logotipo",
       "menuitems": {
          "home": "Inicio",
-         "projects": "Proyectos",
-         "contact": "Contacto"
+         "website_themes": "Temas para Sitios Web"
       },
       "light": "Claro",
       "dark": "Oscuro",
