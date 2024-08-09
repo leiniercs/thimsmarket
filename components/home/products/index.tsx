@@ -46,7 +46,7 @@ function ProductCard({
                   wrapper: "min-h-[255px] min-w-full",
                   img: "w-full h-full"
                }}
-               src={`https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`}
+               src={`/images/products/${product.slug}.webp`}
                alt={product.slug}
                radius="none"
             />

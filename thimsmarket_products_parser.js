@@ -1,27 +1,27 @@
 require("dotenv").config();
 const { existsSync, createWriteStream } = require("node:fs");
 const { spawnSync } = require("node:child_process");
-const thimsMarketProductListRaw = require("./thims_market_products.json");
+const thimsMarketProductListRaw = require("./thimsmarket_products.json");
 const thimsMarketProductList = [];
 const oidTypes = new Map();
 const oidCategories = new Map();
 //   const prices = [];
 const { MongoClient, ObjectId } = require("mongodb");
-const dbClient = new MongoClient(env.DB_URI, {
+const dbClient = new MongoClient(process.env.DB_URI, {
    appName: "Thims Market - Products Parser"
 });
-const dbThimsMarket = dbClient.db(env.DB_THIMS_MARKET_DATABASE);
+const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
 const tableThimsMarketProductTypes = dbThimsMarket.collection(
-   env.DB_TABLE_PRODUCT_TYPES
+   process.env.DB_TABLE_PRODUCT_TYPES
 );
 const tableThimsMarketProductCategories = dbThimsMarket.collection(
-   env.DB_TABLE_PRODUCT_CATEGORIES
+   process.env.DB_TABLE_PRODUCT_CATEGORIES
 );
 const tableThimsMarketCreators = dbThimsMarket.collection(
-   env.DB_TABLE_PRODUCT_CREATORS
+   process.env.DB_TABLE_PRODUCT_CREATORS
 );
 const tableThimsMarketProducts = dbThimsMarket.collection(
-   env.DB_TABLE_PRODUCTS
+   process.env.DB_TABLE_PRODUCTS
 );
 
 oidTypes.set(
@@ -35,16 +35,6 @@ async function downloadProduct(product) {
          `${process.env.THIMS_MARKET_PRODUCTS_PATH}/${product.slug}.zip`
       )
    ) {
-      const fetchThumbnail = await fetch(
-         `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
-         { method: "GET" }
-      );
-      const streamThumbnail = createWriteStream(
-         `${process.cwd}/public/images/products/${product.slug}.webp`,
-         { autoClose: true }
-      );
-      streamThumbnail.write(await fetchThumbnail.arrayBuffer());
-
       const spawnResult = spawnSync(
          "git",
          [
@@ -62,6 +52,21 @@ async function downloadProduct(product) {
       if (spawnResult.error) {
          return false;
       }
+
+      const fetchThumbnail = await fetch(
+         `https://statichunt-images.netlify.app/themes/thumbnails/${product.slug}.webp`,
+         { method: "GET" }
+      );
+
+      if (fetchThumbnail.status !== 200) {
+         return false;
+      }
+
+      const streamThumbnail = createWriteStream(
+         `./public/images/products/${product.slug}.webp`,
+         { autoClose: true }
+      );
+      streamThumbnail.write(Buffer.from(await fetchThumbnail.arrayBuffer()));
 
       spawnSync(
          "rm",
@@ -97,6 +102,8 @@ async function downloadProduct(product) {
 
       return true;
    }
+
+   return false;
 }
 
 async function processProductCategories(categories, type) {
@@ -146,6 +153,10 @@ async function processProducts() {
    ).map((value) => value._id);
    let lastUsedCreator = 0;
    let index = 1;
+
+   console.info(
+      `Total website themes in the raw list: ${thimsMarketProductListRaw.length}`
+   );
 
    for (let product of thimsMarketProductListRaw) {
       if (product.frontmatter.github && product.frontmatter.category) {
@@ -201,47 +212,52 @@ async function processProducts() {
 
    for (let product of thimsMarketProductList) {
       if (product.frontmatter.github && product.frontmatter.category) {
-         const categoriesOID = [];
+         let categoriesOID = [];
 
-         categoriesOID.push(
+         categoriesOID = categoriesOID.concat(
+            categoriesOID,
             await processProductCategories(
                product.frontmatter.category,
                "category"
             )
          );
-         categoriesOID.push(
+         categoriesOID = categoriesOID.concat(
             await processProductCategories(product.frontmatter.ssg, "ssg")
          );
-         categoriesOID.push(
+         categoriesOID = categoriesOID.concat(
             await processProductCategories(product.frontmatter.css, "css")
          );
-         categoriesOID.push(
+         categoriesOID = categoriesOID.concat(
             await processProductCategories(product.frontmatter.cms, "cms")
          );
 
-         await downloadProduct(product);
+         if ((await downloadProduct(product)) === true) {
+            await tableThimsMarketProducts.insertOne({
+               slug: product.slug,
+               title: product.frontmatter.title,
+               description: product.frontmatter.description,
+               content: product.content,
+               type: oidTypes.get("website_themes"),
+               categories: categoriesOID,
+               creator: creators[Math.floor(Math.random() * creators.length)],
+               price: 0,
+               currency: "USD"
+            });
 
-         await tableThimsMarketProducts.insertOne({
-            slug: product.slug,
-            title: product.frontmatter.title,
-            description: product.frontmatter.description,
-            content: product.content,
-            type: oidTypes.get("website_themes"),
-            categories: categoriesOID,
-            creator: creators[Math.floor(Math.random() * creators.length)],
-            price: 0,
-            currency: "USD"
-         });
+            if (lastUsedCreator >= creators.length) {
+               lastUsedCreator = 0;
+            }
 
-         if (lastUsedCreator >= creators.length) {
-            lastUsedCreator = 0;
+            console.info(
+               `[${index++}/${thimsMarketProductList.length}] '${product.frontmatter.title}' processed.`
+            );
+
+            spawnSync("sleep", ["1"]);
+         } else {
+            console.info(
+               `[${index++}/${thimsMarketProductList.length}] '${product.frontmatter.title}' omitted.`
+            );
          }
-
-         console.info(
-            `[${index++}/${thimsMarketProductList.length}] '${product.frontmatter.title}' processed.`
-         );
-
-         spawnSync("sleep", ["1"]);
       }
    }
 }

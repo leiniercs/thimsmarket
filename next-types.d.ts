@@ -12,5 +12,6 @@ namespace NodeJS {
       readonly DB_TABLE_PRODUCT_CREATORS: string;
       readonly THIMS_MARKET_STORE_ID: string;
       readonly THIMS_MARKET_TYPE_WEBSITE_THEMES_ID: string;
+      readonly THIMS_MARKET_PRODUCTS_PATH: string;
    }
 }
