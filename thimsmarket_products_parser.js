@@ -279,4 +279,4 @@ async function processProducts() {
 }
 
 //processProducts().catch(console.error);
-assignPrices.catch(console.error);
+assignPrices().catch(console.error);
