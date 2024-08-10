@@ -31,7 +31,7 @@ async function assignPrices() {
    let i = 0;
 
    for (i = 0; i < 5; i++) {
-      prices[i].push([]);
+      prices.push([]);
    }
 
    for (i = 0; i < Number(amountProducts * 0.05).toFixed(0); i++) {
