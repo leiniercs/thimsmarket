@@ -5,7 +5,6 @@ const thimsMarketProductListRaw = require("./thimsmarket_products.json");
 const thimsMarketProductList = [];
 const oidTypes = new Map();
 const oidCategories = new Map();
-//   const prices = [];
 const { MongoClient, ObjectId } = require("mongodb");
 const dbClient = new MongoClient(process.env.DB_URI, {
    appName: "Thims Market - Products Parser"
