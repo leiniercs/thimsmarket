@@ -27,12 +27,8 @@ oidTypes.set(
 
 async function assignPrices() {
    const amountProducts = await tableThimsMarketProducts.countDocuments();
-   let prices = [];
+   let prices = [[], [], [], [], []];
    let i = 0;
-
-   for (i = 0; i < 5; i++) {
-      prices.push([]);
-   }
 
    for (i = 0; i < Number(amountProducts * 0.05).toFixed(0); i++) {
       prices[0].push(5);
@@ -50,26 +46,27 @@ async function assignPrices() {
       prices[4].push(100);
    }
 
-   const products = tableThimsMarketProducts.find(
-      {},
-      { projection: { _id: 1 } }
-   );
+   const products = await tableThimsMarketProducts
+      .find({}, { projection: { _id: 1 } })
+      .toArray();
    let product = null;
    let randomSource = 0;
    let randomPrice = 0;
 
-   while (products.hasNext()) {
-      product = await products.next();
-      randomSource = Math.random() * prices.length;
+   for (product of products) {
+      //product = await products.next();
+      randomSource = Math.floor(Math.random() * prices.length);
+      console.info(randomSource, prices[randomSource].length);
       if (prices[randomSource].length === 0) {
          prices.splice(randomSource, 1);
-         randomSource = Math.random() * prices.length;
+         randomSource = Math.floor(Math.random() * prices.length);
+         console.info("FIX", randomSource, prices[randomSource].length);
       }
       randomPrice = prices[randomSource].pop();
 
       await tableThimsMarketProducts.updateOne(
          { _id: { $eq: product._id } },
-         { price: randomPrice }
+         { $set: { price: randomPrice } }
       );
    }
 }
