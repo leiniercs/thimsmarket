@@ -11,9 +11,6 @@ const dbClient = new MongoClient(process.env.DB_URI, {
    appName: "Thims Market - Products Parser"
 });
 const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
-const tableThimsMarketProductTypes = dbThimsMarket.collection(
-   process.env.DB_TABLE_PRODUCT_TYPES
-);
 const tableThimsMarketProductCategories = dbThimsMarket.collection(
    process.env.DB_TABLE_PRODUCT_CATEGORIES
 );
@@ -28,6 +25,55 @@ oidTypes.set(
    "website_themes",
    ObjectId.createFromHexString("66b4da2edb5f5481e64c8127")
 );
+
+async function assignPrices() {
+   const amountProducts = await tableThimsMarketProducts.countDocuments();
+   let prices = [];
+   let i = 0;
+
+   for (i = 0; i < 5; i++) {
+      prices[i].push([]);
+   }
+
+   for (i = 0; i < Number(amountProducts * 0.05).toFixed(0); i++) {
+      prices[0].push(5);
+   }
+   for (i = 0; i < Number(amountProducts * 0.05).toFixed(0); i++) {
+      prices[1].push(10);
+   }
+   for (i = 0; i < Number(amountProducts * 0.1).toFixed(0); i++) {
+      prices[2].push(20);
+   }
+   for (i = 0; i < Number(amountProducts * 0.2).toFixed(0); i++) {
+      prices[3].push(50);
+   }
+   for (i = 0; i < Number(amountProducts * 0.6).toFixed(0); i++) {
+      prices[4].push(100);
+   }
+
+   const products = tableThimsMarketProducts.find(
+      {},
+      { projection: { _id: 1 } }
+   );
+   let product = null;
+   let randomSource = 0;
+   let randomPrice = 0;
+
+   while (products.hasNext()) {
+      product = await products.next();
+      randomSource = Math.random() * prices.length;
+      if (prices[randomSource].length === 0) {
+         prices.splice(randomSource, 1);
+         randomSource = Math.random() * prices.length;
+      }
+      randomPrice = prices[randomSource].pop();
+
+      await tableThimsMarketProducts.updateOne(
+         { _id: { $eq: product._id } },
+         { price: randomPrice }
+      );
+   }
+}
 
 async function downloadProduct(product) {
    if (
@@ -175,43 +221,7 @@ async function processProducts() {
          }
       }
    }
-   /*
-   for (
-      let i = 0;
-      i < Number(thimsMarketProductList.length * 0.05).toFixed(0);
-      i++
-   ) {
-      prices.push(5);
-   }
-   for (
-      let i = 0;
-      i < Number(thimsMarketProductList.length * 0.05).toFixed(0);
-      i++
-   ) {
-      prices.push(10);
-   }
-   for (
-      let i = 0;
-      i < Number(thimsMarketProductList.length * 0.1).toFixed(0);
-      i++
-   ) {
-      prices.push(20);
-   }
-   for (
-      let i = 0;
-      i < Number(thimsMarketProductList.length * 0.2).toFixed(0);
-      i++
-   ) {
-      prices.push(50);
-   }
-   for (
-      let i = 0;
-      i < Number(thimsMarketProductList.length * 0.6).toFixed(0);
-      i++
-   ) {
-      prices.push(100);
-   }
-*/
+
    console.info(
       `Total website themes to process: ${thimsMarketProductList.length}`
    );
@@ -268,4 +278,5 @@ async function processProducts() {
    }
 }
 
-processProducts().catch(console.error);
+//processProducts().catch(console.error);
+assignPrices.catch(console.error);
