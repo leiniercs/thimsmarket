@@ -1,3 +1,4 @@
+import { Type } from "@/types/product";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import {
    Image,
@@ -6,6 +7,7 @@ import {
    NavbarContent,
    NavbarMenu
 } from "@nextui-org/react";
+import { getTypes } from "@/components/common/products";
 import { LanguageSwitcher } from "@/components/header/language_switcher";
 import { NavigationItems } from "@/components/header/navigation_items";
 import { Link } from "@/components/common/navigation";
@@ -17,6 +19,7 @@ interface CustomComponentProps {
 export async function Header({ locale }: Readonly<CustomComponentProps>) {
    unstable_setRequestLocale(locale);
    const tHeader = await getTranslations("header");
+   const menuItems: Type[] = await getTypes();
 
    return (
       <Navbar
@@ -38,13 +41,13 @@ export async function Header({ locale }: Readonly<CustomComponentProps>) {
             </NavbarBrand>
          </NavbarContent>
          <NavbarContent className="hidden sm:flex" justify="center">
-            <NavigationItems />
+            <NavigationItems items={menuItems} />
          </NavbarContent>
          <NavbarContent justify="end">
             <LanguageSwitcher />
          </NavbarContent>
          <NavbarMenu>
-            <NavigationItems isMenuItems={true} />
+            <NavigationItems items={menuItems} isMenuItems={true} />
          </NavbarMenu>
       </Navbar>
    );

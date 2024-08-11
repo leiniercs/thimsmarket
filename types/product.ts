@@ -13,3 +13,15 @@ export interface OrderProduct {
    amount: number;
    currency: string;
 }
+
+export interface Category {
+   slug: string;
+   type: string;
+   title: string;
+}
+
+export interface Type {
+   slug: string;
+   title: string;
+   categories: Category[];
+}

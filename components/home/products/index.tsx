@@ -6,7 +6,6 @@ import {
    CardFooter,
    CardHeader,
    Image,
-   Skeleton,
    Tooltip
 } from "@nextui-org/react";
 import { FaCartPlus } from "react-icons/fa6";

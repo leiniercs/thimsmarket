@@ -27,7 +27,7 @@ export default async function LocalePage({
    return (
       <Products
          locale={locale}
-         basePath={`/types/${category}`}
+         basePath={`/categories/${category}`}
          category={category}
          page={page}
       />

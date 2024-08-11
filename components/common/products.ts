@@ -1,4 +1,58 @@
+import type { WithId } from "mongodb";
+import type { Category, Type } from "@/types/product";
 import { dbClient } from "@/components/common/database";
+import { ObjectId } from "mongodb";
+
+export async function getTypes(): Promise<Type[]> {
+   const results: Type[] = [];
+   const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
+   const tableThimsMarketProductTypes = dbThimsMarket.collection(
+      process.env.DB_TABLE_PRODUCT_TYPES
+   );
+
+   (
+      await tableThimsMarketProductTypes
+         .aggregate([
+            {
+               $lookup: {
+                  from: "product_categories",
+                  localField: "_id",
+                  foreignField: "typeId",
+                  as: "categories"
+               }
+            },
+            {
+               $project: {
+                  slug: 1,
+                  title: 1,
+                  "categories._id": 1,
+                  "categories.slug": 1,
+                  "categories.type": 1,
+                  "categories.title": 1
+               }
+            }
+         ])
+         .toArray()
+   ).forEach((value: any) => {
+      const categories: Category[] = [];
+
+      value.categories.forEach((value: any) => {
+         categories.push({
+            slug: value.slug,
+            type: value.type,
+            title: value.title
+         });
+      });
+
+      results.push({
+         slug: value.slug,
+         title: value.title,
+         categories: categories
+      });
+   });
+
+   return results;
+}
 
 export async function getProductsCount(
    type?: string,
@@ -34,14 +88,14 @@ export async function getProductsCount(
       const rowsProductCategory =
          await tableThimsMarketProductCategories.findOne(
             {
-               slug: { $eq: type }
+               slug: { $eq: category }
             },
             { projection: { _id: 1 } }
          );
 
       if (rowsProductCategory) {
          // @ts-ignore
-         filters.category = { $eq: rowsProductCategory._id };
+         filters.categories = { $eq: rowsProductCategory._id };
       }
    }
 
@@ -84,14 +138,14 @@ export async function getProducts(
       const rowsProductCategory =
          await tableThimsMarketProductCategories.findOne(
             {
-               slug: { $eq: type }
+               slug: { $eq: category }
             },
             { projection: { _id: 1 } }
          );
 
       if (rowsProductCategory) {
          // @ts-ignore
-         filters.category = { $eq: rowsProductCategory._id };
+         filters.categories = { $eq: rowsProductCategory._id };
       }
    }
 
