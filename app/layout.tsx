@@ -82,11 +82,11 @@ export default async function RootLayout({
                {`{
    "@context": "https://schema.org",
    "@type": "Organization",
-   "image": ogImage,
-   "url": urlBase,
-   "logo": favIcon,
-   "name": appName,
-   "description": tMetadata("description"),
+   "image": "${ogImage}",
+   "url": "${urlBase}",
+   "logo": "${favIcon}",
+   "name": "${appName}",
+   "description": "${tMetadata("description")}",
    "email": "contact@sdlplatforms.com",
    "telephone": "+971 (4) 288-5285",
    "address": {
