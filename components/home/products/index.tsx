@@ -1,3 +1,5 @@
+import type { Product } from "schema-dts";
+import Script from "next/script";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import {
    Button,
@@ -8,6 +10,7 @@ import {
    Image,
    Tooltip
 } from "@nextui-org/react";
+import { jsonLdScriptProps } from "react-schemaorg";
 import { FaCartPlus } from "react-icons/fa6";
 import { getProducts, getProductsCount } from "@/components/common/products";
 import { ProductsPagination } from "@/components/home/products/pagination";
@@ -98,25 +101,49 @@ export async function Products({
    );
 
    return (
-      <div className="flex flex-wrap justify-between gap-10">
-         <ProductsPagination
-            basePath={basePath}
-            page={Number(page || "0")}
-            pages={totalProducts}
+      <>
+         <Script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify(
+                  products.map((product: any) => ({
+                     "@context": "https://schema.org",
+                     "@type": "Product",
+                     name: product.title,
+                     description: product.description,
+                     image: `${process.env.NEXT_PUBLIC_URL_BASE}/images/products/${product.slug}.webp`,
+                     offers: {
+                        "@type": "Offer",
+                        price: product.price,
+                        priceCurrency: product.currency,
+                        availability: "https://schema.org/InStock"
+                     }
+                  })),
+                  null,
+                  ""
+               )
+            }}
          />
-         {products.map((product: any, index: number) => (
-            <ProductCard
-               key={index}
-               locale={locale}
-               product={product}
-               addToCart={tProducts("add-to-cart")}
+         <div className="flex flex-wrap justify-between gap-10">
+            <ProductsPagination
+               basePath={basePath}
+               page={Number(page || "0")}
+               pages={totalProducts}
             />
-         ))}
-         <ProductsPagination
-            basePath={basePath}
-            page={Number(page || "0")}
-            pages={totalProducts}
-         />
-      </div>
+            {products.map((product: any, index: number) => (
+               <ProductCard
+                  key={index}
+                  locale={locale}
+                  product={product}
+                  addToCart={tProducts("add-to-cart")}
+               />
+            ))}
+            <ProductsPagination
+               basePath={basePath}
+               page={Number(page || "0")}
+               pages={totalProducts}
+            />
+         </div>
+      </>
    );
 }

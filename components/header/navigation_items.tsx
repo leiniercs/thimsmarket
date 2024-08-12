@@ -113,7 +113,7 @@ export function NavigationItems({
 
             if (si) {
                results.push(
-                  <div className="flex flex-col gap-4">
+                  <div key={key} className="flex flex-col gap-4">
                      <h3 className="pl-2 font-bold">
                         {tHeader(`menuitems.${key}`)}
                      </h3>

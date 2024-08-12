@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import type { Organization } from "schema-dts";
 import { ReactNode } from "react";
-import { Organization } from "schema-dts";
 import { jsonLdScriptProps } from "react-schemaorg";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { RootProviders } from "@/components/providers";
@@ -15,7 +15,6 @@ const urlBase: string = process.env.NEXT_PUBLIC_URL_BASE;
 const appName: string = "Thims Market";
 const favIcon: string = `${urlBase}/images/logo/logo-color-onlyicon-nobackground.svg`;
 const ogImage: string = `${urlBase}/images/logo/logo-color-background.svg`;
-const contactEmail: string = "contact@sdlplatforms.com";
 
 export async function generateMetadata(): Promise<Metadata> {
    unstable_setRequestLocale("en");
@@ -50,6 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
          }
       },
       category: "technology",
+      verification: { google: "eySahAVdUor4wEfyPheFKfw9TlWd9QcB9p6C-M5qzJQ" },
       robots: {
          index: true,
          follow: true,
