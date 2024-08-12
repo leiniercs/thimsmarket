@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
+import { Organization } from "schema-dts";
+import { jsonLdScriptProps } from "react-schemaorg";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { RootProviders } from "@/components/providers";
 import { locales } from "@/components/common/locales";
@@ -78,35 +80,37 @@ export default async function RootLayout({
    return (
       <html className="antialiased dark">
          <head>
-            <script type="application/ld+json">
-               {`{
-   "@context": "https://schema.org",
-   "@type": "Organization",
-   "image": "${ogImage}",
-   "url": "${urlBase}",
-   "logo": "${favIcon}",
-   "name": "${appName}",
-   "description": "${tMetadata("description")}",
-   "email": "contact@sdlplatforms.com",
-   "telephone": "+971 (4) 288-5285",
-   "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Building A1, Dubai Digital Park, Dubai Silicon Oasis. P.O. Box 342001",
-      "addressLocality": "Dubai",
-      "addressRegion": "Dubai",
-      "postalCode": "00000",
-      "addressCountry": "AE"
-   },
-   "hasMerchantReturnPolicy": {
-      "merchantReturnLink": "https://www.sdlplatforms.com/refund",
-      "itemCondition": "https://schema.org/NewCondition",
-      "refundType": "https://schema.org/FullRefund",
-      "returnFees": "https://schema.org/FreeReturn"
-   },
-   "foundingDate": "2024-04-19T00:00:00",
-   "taxID": "104457494300001"
-}`}
-            </script>
+            <script
+               {...jsonLdScriptProps<Organization>({
+                  "@context": "https://schema.org",
+                  "@type": "Organization",
+                  image: ogImage,
+                  url: urlBase,
+                  logo: favIcon,
+                  name: appName,
+                  description: tMetadata("description"),
+                  email: "contact@sdlplatforms.com",
+                  telephone: "+971 (4) 288-5285",
+                  address: {
+                     "@type": "PostalAddress",
+                     streetAddress:
+                        "Building A1, Dubai Digital Park, Dubai Silicon Oasis. P.O. Box 342001",
+                     addressLocality: "Dubai",
+                     addressRegion: "Dubai",
+                     postalCode: "00000",
+                     addressCountry: "AE"
+                  },
+                  // @ts-ignore
+                  hasMerchantReturnPolicy: {
+                     merchantReturnLink: "https://www.sdlplatforms.com/refund",
+                     itemCondition: "https://schema.org/NewCondition",
+                     refundType: "https://schema.org/FullRefund",
+                     returnFees: "https://schema.org/FreeReturn"
+                  },
+                  foundingDate: "2024-04-19T00:00:00",
+                  taxID: "104457494300001"
+               })}
+            />
          </head>
          <body>
             <RootProviders>{children}</RootProviders>
