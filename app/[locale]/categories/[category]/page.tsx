@@ -3,21 +3,24 @@ import { getTranslations } from "next-intl/server";
 import { Products } from "@/components/home/products";
 
 interface CustomMetadataProps {
-   params: { locale: string };
+   params: { locale: string; category: string };
 }
 
 interface CustomPageProps {
    params: { locale: string; category: string };
 }
 
-export async function generateMetadata(
-   { params: { locale } }: Readonly<CustomMetadataProps>,
-   parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+   params: { locale, category }
+}: Readonly<CustomMetadataProps>): Promise<Metadata> {
    const tHome = await getTranslations({ locale, namespace: "home" });
+   const tHeader = await getTranslations({
+      locale,
+      namespace: "header.menuitems"
+   });
 
    return {
-      title: tHome("metadata.title")
+      title: `${tHeader(category)} :: ${tHome("metadata.title")}`
    };
 }
 
