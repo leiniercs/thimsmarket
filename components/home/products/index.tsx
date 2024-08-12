@@ -103,6 +103,7 @@ export async function Products({
    return (
       <>
          <Script
+            id="products_ld_json"
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                __html: JSON.stringify(
