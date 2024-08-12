@@ -81,6 +81,8 @@ export default async function RootLayout({
       <html className="antialiased dark">
          <head>
             <script
+               id="organization_jd_json"
+               key="organization_jd_json"
                {...jsonLdScriptProps<Organization>({
                   "@context": "https://schema.org",
                   "@type": "Organization",

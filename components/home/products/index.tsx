@@ -1,5 +1,5 @@
 import type { Product } from "schema-dts";
-import Script from "next/script";
+import Head from "next/head";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import {
    Button,
@@ -102,29 +102,32 @@ export async function Products({
 
    return (
       <>
-         <Script
-            id="products_ld_json"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify(
-                  products.map((product: any) => ({
-                     "@context": "https://schema.org",
-                     "@type": "Product",
-                     name: product.title,
-                     description: product.description,
-                     image: `${process.env.NEXT_PUBLIC_URL_BASE}/images/products/${product.slug}.webp`,
-                     offers: {
-                        "@type": "Offer",
-                        price: product.price,
-                        priceCurrency: product.currency,
-                        availability: "https://schema.org/InStock"
-                     }
-                  })),
-                  null,
-                  ""
-               )
-            }}
-         />
+         <Head>
+            <script
+               id="products_jd_json"
+               key="products_jd_json"
+               type="application/ld+json"
+               dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(
+                     products.map((product: any) => ({
+                        "@context": "https://schema.org",
+                        "@type": "Product",
+                        name: product.title,
+                        description: product.description,
+                        image: `${process.env.NEXT_PUBLIC_URL_BASE}/images/products/${product.slug}.webp`,
+                        offers: {
+                           "@type": "Offer",
+                           price: product.price,
+                           priceCurrency: product.currency,
+                           availability: "https://schema.org/InStock"
+                        }
+                     })),
+                     null,
+                     ""
+                  )
+               }}
+            />
+         </Head>
          <div className="flex flex-wrap justify-between gap-10">
             <ProductsPagination
                basePath={basePath}
