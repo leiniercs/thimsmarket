@@ -4,6 +4,8 @@ import type { Category, Type } from "@/types/product";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import {
+   Accordion,
+   AccordionItem,
    NavbarItem,
    NavbarMenuItem,
    Popover,
@@ -26,7 +28,7 @@ interface NavigationItem {
 }
 
 interface NavigationItempProps {
-   className: string;
+   className?: string;
    item: NavigationItem;
 }
 
@@ -94,12 +96,36 @@ export function NavigationItems({
       setMenuHoverStates(hoverStates);
 
       return results;
-   }, [tHeader]);
+   }, [items, tHeader]);
+
+   if (currentPathname === "/") {
+      menuItems[0].active = true;
+   }
 
    for (let i: number = 1; i < menuItems.length; i++) {
       if (currentPathname.startsWith(menuItems[i].href)) {
          menuItems[i].active = true;
          menuItems[0].active = false;
+      } else {
+         menuItems[i].active = false;
+      }
+
+      if (menuItems[i].subitems.size > 0) {
+         // @ts-ignore
+         for (let key of menuItems[i].subitems.keys()) {
+            const category = menuItems[i].subitems.get(key);
+
+            if (category) {
+               for (let c: number = 0; c < category.length; c++) {
+                  if (currentPathname.startsWith(category[c].href)) {
+                     category[c].active = true;
+                     menuItems[0].active = false;
+                  } else {
+                     category[c].active = false;
+                  }
+               }
+            }
+         }
       }
    }
 
@@ -117,12 +143,12 @@ export function NavigationItems({
                      <h3 className="pl-2 font-bold">
                         {tHeader(`menuitems.${key}`)}
                      </h3>
-                     <div className="flex max-h-96 flex-col flex-wrap gap-2">
+                     <div className="grid grid-cols-3 gap-2 sm:flex sm:max-h-[400px] sm:flex-col sm:flex-wrap">
                         {si.map((value: NavigationItem, index: number) => (
                            <UILink
                               key={index}
                               as={Link}
-                              className="px-2 py-1"
+                              className={`px-2 py-1 ${value.active ? "font-bold" : "font-normal"}`}
                               href={value.href}
                               color={value.active ? "primary" : "foreground"}
                               size="sm"
@@ -139,15 +165,27 @@ export function NavigationItems({
 
          return results;
       },
-      []
+      [tHeader]
    );
 
    return menuItems.map((item: NavigationItem, index: number) => (
       <>
-         {isMenuItems === true ? (
-            <NavbarMenuItem key={index} isActive={item.active}>
-               <NavigationItem className="px-2 py-1" item={item} />
-            </NavbarMenuItem>
+         {isMenuItems ? (
+            <NavbarItem key={index} isActive={item.active}>
+               {item.subitems.size === 0 ? (
+                  <NavigationItem className="px-6 py-4" item={item} />
+               ) : (
+                  <>
+                     <Accordion key={item.name} variant="splitted">
+                        <AccordionItem title={<NavigationItem item={item} />}>
+                           <div className="flex flex-col gap-6">
+                              {renderSubitems(item.subitems)}
+                           </div>
+                        </AccordionItem>
+                     </Accordion>
+                  </>
+               )}
+            </NavbarItem>
          ) : (
             <NavbarItem key={index} isActive={item.active}>
                {item.subitems.size === 0 ? (

@@ -102,10 +102,9 @@ export async function Products({
 
    return (
       <>
-         <Head>
+         <Head key="products_jd_json">
             <script
                id="products_jd_json"
-               key="products_jd_json"
                type="application/ld+json"
                dangerouslySetInnerHTML={{
                   __html: JSON.stringify(

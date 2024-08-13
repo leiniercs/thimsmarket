@@ -5,7 +5,8 @@ import {
    Navbar,
    NavbarBrand,
    NavbarContent,
-   NavbarMenu
+   NavbarMenu,
+   NavbarMenuToggle
 } from "@nextui-org/react";
 import { getTypes } from "@/components/common/products";
 import { LanguageSwitcher } from "@/components/header/language_switcher";
@@ -29,6 +30,7 @@ export async function Header({ locale }: Readonly<CustomComponentProps>) {
          shouldHideOnScroll
       >
          <NavbarContent justify="start">
+            <NavbarMenuToggle className="sm:hidden" />
             <NavbarBrand className="pl-0">
                <Link href="/">
                   <Image
