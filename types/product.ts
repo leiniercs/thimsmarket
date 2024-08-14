@@ -1,8 +1,10 @@
 export interface Product {
-   name: string;
+   id: string;
+   slug: string;
+   title: string;
+   description: string;
    price: number;
    currency: string;
-   stock: number;
 }
 
 export interface OrderProduct {

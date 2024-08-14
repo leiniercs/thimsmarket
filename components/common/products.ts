@@ -1,7 +1,6 @@
-import type { WithId } from "mongodb";
-import type { Category, Type } from "@/types/product";
+import type { Document, WithId } from "mongodb";
+import type { Category, Type, Product } from "@/types/product";
 import { dbClient } from "@/components/common/database";
-import { ObjectId } from "mongodb";
 
 export async function getTypes(): Promise<Type[]> {
    const results: Type[] = [];
@@ -108,7 +107,7 @@ export async function getProducts(
    type?: string,
    category?: string,
    page?: number
-): Promise<Array<any>> {
+): Promise<Array<Product>> {
    const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
    const tableThimsMarketProducts = dbThimsMarket.collection(
       process.env.DB_TABLE_PRODUCTS
@@ -149,9 +148,16 @@ export async function getProducts(
       }
    }
 
-   const rows = await tableThimsMarketProducts
+   const rows: Array<WithId<Document>> = await tableThimsMarketProducts
       .find(filters, { skip: Number(page || 0) * 15, limit: 15 })
       .toArray();
 
-   return rows;
+   return rows.map((row: WithId<Document>) => ({
+      id: row._id.toHexString(),
+      slug: row.slug,
+      title: row.title,
+      description: row.description,
+      price: row.price,
+      currency: row.currency
+   }));
 }

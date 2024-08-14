@@ -1,76 +1,85 @@
 "use client";
-import type { ReactNode, SetStateAction } from "react";
-import type { User } from "@/types/user";
-import {
-   createContext,
-   useCallback,
-   useContext,
-   useEffect,
-   useState
-} from "react";
+import type { Dispatch, ReactNode, SetStateAction } from "react";
+import type { Order } from "@/types/order";
+import { createContext, useCallback, useEffect, useReducer } from "react";
+
+export enum Actions {
+   SET_ORDER = 0x01
+}
 
 interface CustomComponentProps {
    children: ReactNode;
 }
-
 interface CustomContextProps {
-   user: User | null;
-   setUser(newState: SetStateAction<User | null>): void;
-   reportsInitialDate: Date;
-   setReportsInitialDate(newState: SetStateAction<Date>): void;
-   reportsFinalDate: Date;
-   setReportsFinalDate(newState: SetStateAction<Date>): void;
+   order: Order;
+   setOrder(value: Order): void;
+}
+interface CustomDispatchProps {
+   type: Actions;
+   value: Order;
 }
 
-let _appStates: CustomContextProps = {} as CustomContextProps;
+const _initialState: CustomContextProps = {
+   order: {
+      products: [],
+      currency: "USD",
+      discount: 0,
+      total: 0
+   },
+   setOrder: (value: Order) => {}
+};
 
-export const AppStatesContext = createContext<CustomContextProps>(_appStates);
+const statesReducer = (
+   state: CustomContextProps,
+   action: CustomDispatchProps
+): CustomContextProps => {
+   switch (action.type) {
+      case Actions.SET_ORDER:
+         if (localStorage) {
+            if (action.value) {
+               localStorage.setItem("order", JSON.stringify(action.value));
+            } else {
+               localStorage.removeItem("order");
+            }
+         }
 
-export function useAppStates(): CustomContextProps {
-   return useContext<CustomContextProps>(AppStatesContext);
-}
+         return { ...state, order: action.value };
+      default:
+         return state;
+   }
+};
+
+export const AppStatesContext =
+   createContext<CustomContextProps>(_initialState);
 
 export function AppStatesProvider({
    children
 }: Readonly<CustomComponentProps>) {
-   const [user, setUser_] = useState<User | null>(null);
-   const setUser = useCallback((data: SetStateAction<User | null>) => {
-      if (localStorage) {
-         if (data) {
-            localStorage.setItem("user", JSON.stringify(data));
-         } else {
-            localStorage.removeItem("user");
-         }
-      }
+   const [state, dispatch] = useReducer(statesReducer, _initialState);
 
-      setUser_(data);
-   }, []);
-   const [reportsInitialDate, setReportsInitialDate] = useState<Date>(
-      new Date()
-   );
-   const [reportsFinalDate, setReportsFinalDate] = useState<Date>(new Date());
-
-   _appStates = {
-      user,
-      setUser,
-      reportsInitialDate,
-      setReportsInitialDate,
-      reportsFinalDate,
-      setReportsFinalDate
+   const initialValue = {
+      order: state.order,
+      setOrder: useCallback(
+         (value: Order) => dispatch({ type: Actions.SET_ORDER, value: value }),
+         []
+      )
    };
 
    useEffect(() => {
       if (localStorage) {
-         const lsUser = localStorage.getItem("user");
+         const lsOrder = localStorage.getItem("order");
 
-         if (lsUser) {
-            setUser(JSON.parse(lsUser) as User);
+         if (lsOrder) {
+            dispatch({
+               type: Actions.SET_ORDER,
+               value: JSON.parse(lsOrder) as Order
+            });
          }
       }
-   }, [setUser]);
+   }, []);
 
    return (
-      <AppStatesContext.Provider value={_appStates}>
+      <AppStatesContext.Provider value={initialValue}>
          {children}
       </AppStatesContext.Provider>
    );

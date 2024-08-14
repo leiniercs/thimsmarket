@@ -1,10 +1,10 @@
-import type { OrderProduct } from "@/types/product";
+import type { Product } from "@/types/product";
 
 export interface Order {
    currency: string;
    discount: number;
    total: number;
-   products: OrderProduct[];
+   products: Product[];
 }
 
 export interface Customer {
@@ -32,5 +32,5 @@ export interface FullOrder {
    currency: string;
    discount: number;
    total: number;
-   products: OrderProduct[];
+   products: Product[];
 }

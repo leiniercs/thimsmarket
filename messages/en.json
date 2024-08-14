@@ -73,7 +73,17 @@
       "dark": "Dark",
       "current-theme": "Current theme",
       "click-to-toggle": "Click to toggle",
-      "start": "Start"
+      "start": "Start",
+      "shopping_cart": {
+         "title": "Shopping cart",
+         "product": "Product",
+         "price": "Price",
+         "actions": "Actions",
+         "total_before_discount": "Total before discount",
+         "discount": "Discount",
+         "total": "Total",
+         "checkout": "Checkout"
+      }
    },
    "home": {
       "metadata": { "title": "Home" },

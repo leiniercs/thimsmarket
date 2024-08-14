@@ -9,6 +9,7 @@ import {
    NavbarMenuToggle
 } from "@nextui-org/react";
 import { getTypes } from "@/components/common/products";
+import { ButtonCart } from "@/components/header/button_cart";
 import { LanguageSwitcher } from "@/components/header/language_switcher";
 import { NavigationItems } from "@/components/header/navigation_items";
 import { Link } from "@/components/common/navigation";
@@ -46,6 +47,7 @@ export async function Header({ locale }: Readonly<CustomComponentProps>) {
             <NavigationItems items={menuItems} />
          </NavbarContent>
          <NavbarContent justify="end">
+            <ButtonCart />
             <LanguageSwitcher />
          </NavbarContent>
          <NavbarMenu>

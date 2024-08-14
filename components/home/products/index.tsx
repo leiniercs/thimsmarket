@@ -1,19 +1,15 @@
-import type { Product } from "schema-dts";
+import type { Product } from "@/types/product";
 import Head from "next/head";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import {
-   Button,
    Card,
    CardBody,
    CardFooter,
    CardHeader,
-   Image,
-   Tooltip
+   Image
 } from "@nextui-org/react";
-import { jsonLdScriptProps } from "react-schemaorg";
-import { FaCartPlus } from "react-icons/fa6";
 import { getProducts, getProductsCount } from "@/components/common/products";
 import { ProductsPagination } from "@/components/home/products/pagination";
+import { ButtonShopping } from "@/components/home/products/button_shopping";
 
 interface CustomComponentProps {
    locale: string;
@@ -25,15 +21,10 @@ interface CustomComponentProps {
 
 interface CustomCardProps {
    locale: string;
-   product: any;
-   addToCart: string;
+   product: Product;
 }
 
-function ProductCard({
-   locale,
-   product,
-   addToCart
-}: Readonly<CustomCardProps>) {
+function ProductCard({ locale, product }: Readonly<CustomCardProps>) {
    return (
       <Card
          classNames={{
@@ -72,11 +63,7 @@ function ProductCard({
             <p>{product.description}</p>
          </CardBody>
          <CardFooter>
-            <Tooltip content={addToCart}>
-               <Button variant="flat" isIconOnly>
-                  <FaCartPlus className="h-6 w-6" />
-               </Button>
-            </Tooltip>
+            <ButtonShopping product={product} />
          </CardFooter>
       </Card>
    );
@@ -89,12 +76,10 @@ export async function Products({
    category,
    page
 }: Readonly<CustomComponentProps>) {
-   unstable_setRequestLocale(locale);
-   const tProducts = await getTranslations("home.products");
    const totalProducts: number = Math.floor(
       (await getProductsCount(type, category)) / 15
    );
-   const products: Array<any> = await getProducts(
+   const products: Array<Product> = await getProducts(
       type,
       category,
       Number(page || "0")
@@ -133,13 +118,8 @@ export async function Products({
                page={Number(page || "0")}
                pages={totalProducts}
             />
-            {products.map((product: any, index: number) => (
-               <ProductCard
-                  key={index}
-                  locale={locale}
-                  product={product}
-                  addToCart={tProducts("add-to-cart")}
-               />
+            {products.map((product: Product, index: number) => (
+               <ProductCard key={index} locale={locale} product={product} />
             ))}
             <ProductsPagination
                basePath={basePath}
