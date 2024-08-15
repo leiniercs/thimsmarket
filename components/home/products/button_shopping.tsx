@@ -38,13 +38,19 @@ export function ButtonShopping({ product }: Readonly<CustomComponentProps>) {
       );
 
       if (newOrder.products.length > 0) {
-         newOrder.total = newOrder.products.reduce(
-            (previousValue: Product, currentValue: Product) => ({
-               ...currentValue,
-               price: previousValue.price + currentValue.price
-            })
-         ).price;
-         newOrder.discount = Math.random() * (newOrder.total * 0.01);
+         newOrder.total = Number(
+            Number(
+               newOrder.products.reduce(
+                  (previousValue: Product, currentValue: Product) => ({
+                     ...currentValue,
+                     price: previousValue.price + currentValue.price
+                  })
+               ).price
+            ).toFixed(2)
+         );
+         newOrder.discount = Number(
+            Number(Math.random() * (newOrder.total * 0.01)).toFixed(2)
+         );
          newOrder.total -= newOrder.discount;
       } else {
          newOrder.discount = 0;

@@ -1,6 +1,8 @@
 namespace NodeJS {
    interface ProcessEnv {
       readonly NEXT_PUBLIC_URL_BASE: string;
+      readonly NEXT_PUBLIC_SDLPLATFORMS_PAY_URL: string;
+      readonly JWT_SECRET: string;
       readonly DB_URI: string;
       readonly DB_SDL_PLATFORMS_DATABASE: string;
       readonly DB_THIMS_MARKET_DATABASE: string;

@@ -1,6 +1,6 @@
 "use client";
 import type { Product } from "@/types/product";
-import { useCallback, useContext, useMemo } from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
    Badge,
@@ -24,6 +24,9 @@ export function ButtonCart() {
    const { order, setOrder } = useContext(AppStatesContext);
    const locale = useLocale();
    const tShoppingCart = useTranslations("header.shopping_cart");
+   const [isDataLoading, setDataLoading] = useState<boolean>(false);
+   const [temporarySessionKey, setTemporarySessionKey] = useState<string>("");
+   const [orderId, setOrderId] = useState<string>("");
    const handleActionDelete = useCallback(
       (product: Product) => {
          const newOrder = order;
@@ -53,6 +56,142 @@ export function ButtonCart() {
       },
       [order, setOrder]
    );
+   const [intervalMonitorOrder, setIntervalMonitorOrder] =
+      useState<NodeJS.Timeout | null>(null);
+   const cbMonitorOrder = useCallback(() => {
+      fetch("/api/order/paid", {
+         method: "POST",
+         mode: "cors",
+         cache: "no-store",
+         headers: {
+            "X-Access-Key": temporarySessionKey,
+            "Content-Type": "application/json",
+            Accept: "application/json"
+         },
+         body: JSON.stringify({ orderId: orderId })
+      })
+         .then(async (response: Response) => {
+            switch (response.status) {
+               case 200:
+                  if ((await response.json()).paid) {
+                     setTemporarySessionKey("");
+                     setOrder({
+                        currency: "",
+                        discount: 0,
+                        total: 0,
+                        products: []
+                     });
+                     setIntervalMonitorOrder(
+                        (prevState: NodeJS.Timeout | null) => {
+                           if (prevState) {
+                              clearInterval(prevState);
+                           }
+
+                           return null;
+                        }
+                     );
+                  }
+
+                  break;
+               default:
+                  break;
+            }
+         })
+         .catch((response: Response) => {
+            switch (response.status) {
+               default:
+                  break;
+            }
+         })
+         .finally(() => {
+            setDataLoading(false);
+         });
+   }, [orderId, setOrder, temporarySessionKey]);
+   const handleCheckout = useCallback(() => {
+      setDataLoading(true);
+
+      fetch("/api/order/key", {
+         method: "POST",
+         mode: "cors",
+         cache: "no-store",
+         headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+         },
+         body: JSON.stringify({
+            order: order
+         })
+      })
+         .then(async (responseOrderKey: Response) => {
+            switch (responseOrderKey.status) {
+               case 200:
+                  responseOrderKey
+                     .json()
+                     .then((jsonOrderKey: any) => {
+                        setTemporarySessionKey(jsonOrderKey.key);
+
+                        fetch("/api/order", {
+                           method: "GET",
+                           mode: "cors",
+                           cache: "no-store",
+                           headers: {
+                              "X-Access-Key": jsonOrderKey.key,
+                              "Content-Type": "application/json",
+                              Accept: "application/json"
+                           }
+                        })
+                           .then(async (responseOrder: Response) => {
+                              switch (responseOrder.status) {
+                                 case 200:
+                                    responseOrder
+                                       .json()
+                                       .then((jsonOrder: any) => {
+                                          setOrderId(jsonOrder.orderId);
+
+                                          if (window) {
+                                             window.open(
+                                                `${process.env.NEXT_PUBLIC_SDLPLATFORMS_PAY_URL}/${locale}/?orderId=${jsonOrder.orderId}`,
+                                                "_blank"
+                                             );
+
+                                             setIntervalMonitorOrder(
+                                                (
+                                                   prevState: NodeJS.Timeout | null
+                                                ) => {
+                                                   if (prevState) {
+                                                      clearInterval(prevState);
+                                                   }
+
+                                                   return setInterval(
+                                                      cbMonitorOrder,
+                                                      10000
+                                                   );
+                                                }
+                                             );
+                                          }
+                                       })
+                                       .catch(console.error);
+                                    break;
+                                 default:
+                                    break;
+                              }
+                           })
+                           .catch(console.error)
+                           .finally(() => {
+                              setDataLoading(false);
+                           });
+                     })
+                     .catch(console.error);
+                  break;
+               default:
+                  break;
+            }
+         })
+         .catch(console.error)
+         .finally(() => {
+            setDataLoading(false);
+         });
+   }, [cbMonitorOrder, locale, order]);
 
    return order.products.length > 0 ? (
       <Popover
@@ -152,7 +291,9 @@ export function ButtonCart() {
                   className="font-bold"
                   color="primary"
                   startContent={<MdShoppingCartCheckout className="h-4 w-4" />}
-                  isDisabled
+                  isDisabled={isDataLoading}
+                  isLoading={isDataLoading}
+                  onClick={handleCheckout}
                >
                   {tShoppingCart("checkout")}
                </Button>
