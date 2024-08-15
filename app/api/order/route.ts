@@ -97,7 +97,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
          if (dbOrderInsertOneResult.acknowledged) {
             return NextResponse.json({
                success: true,
-               orderId: dbOrderInsertOneResult.insertedId.toHexString()
+               orderId: thimsMarketOrderId.toHexString()
             });
          } else {
             return NextResponse.json({ error: true }, { status: 500 });
