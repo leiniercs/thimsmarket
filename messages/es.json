@@ -88,5 +88,15 @@
    "home": {
       "metadata": { "title": "Inicio" },
       "products": { "add-to-cart": "Agregar al carro" }
+   },
+   "footer": {
+      "owned": "Éste servicio es propiedad de",
+      "company": "Compañía",
+      "legal": {
+         "title": "Legal",
+         "terms": "Términos & Condiciones",
+         "privacy": "Política de privacidad",
+         "refunds": "Política de reembolsos"
+      }
    }
 }

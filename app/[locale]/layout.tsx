@@ -7,6 +7,7 @@ import {
 } from "next-intl/server";
 import { LocaleProviders } from "@/components/providers";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 interface CustomMetadataProps {
    params: { locale: string };
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
                {children}
             </section>
          </main>
+         <Footer />
       </LocaleProviders>
    );
 }

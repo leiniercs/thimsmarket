@@ -88,5 +88,15 @@
    "home": {
       "metadata": { "title": "Home" },
       "products": { "add-to-cart": "Add to cart" }
+   },
+   "footer": {
+      "owned": "This service is property of",
+      "company": "Company",
+      "legal": {
+         "title": "Legal",
+         "terms": "Terms & Conditions",
+         "privacy": "Privacy policy",
+         "refunds": "Refunds policy"
+      }
    }
 }
