@@ -1,11 +1,12 @@
 import type { NavMenuItem } from "@/types/menu";
 import type { SocialMediaDetails } from "@/types/contact";
-import { contact } from "@/components/common/contact";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Divider, Image, Link as UILink } from "@nextui-org/react";
 import Link from "@/components/footer/link";
+import { contact } from "@/components/common/contact";
 
 export async function Footer() {
+   const locale = await getLocale();
    const tHeader = await getTranslations("header");
    const tFooter = await getTranslations("footer");
    const menuItemsCompany: NavMenuItem[] = [
@@ -14,15 +15,15 @@ export async function Footer() {
    const menuItemsLegal: NavMenuItem[] = [
       {
          name: tFooter("legal.terms"),
-         href: "https://www.sdlplatforms.com/terms"
+         href: `https://www.sdlplatforms.com/${locale}/terms`
       },
       {
          name: tFooter("legal.privacy"),
-         href: "https://www.sdlplatforms.com/privacy"
+         href: `https://www.sdlplatforms.com/${locale}/privacy`
       },
       {
          name: tFooter("legal.refunds"),
-         href: "https://www.sdlplatforms.com/refunds"
+         href: `https://www.sdlplatforms.com/${locale}/refunds`
       }
    ];
 
