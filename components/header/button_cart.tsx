@@ -16,7 +16,12 @@ import {
    TableHeader,
    TableRow
 } from "@nextui-org/react";
-import { FaCartShopping } from "react-icons/fa6";
+import {
+   FaCartShopping,
+   FaCcVisa,
+   FaCcMastercard,
+   FaCcDinersClub
+} from "react-icons/fa6";
 import { MdDeleteForever, MdShoppingCartCheckout } from "react-icons/md";
 import { AppStatesContext } from "@/components/contexts/app_states";
 
@@ -286,7 +291,12 @@ export function ButtonCart() {
                   }).format(order.total)}
                </span>
             </div>
-            <div className="mt-4 flex w-full justify-end">
+            <div className="mt-4 flex w-full items-center justify-between">
+               <div className="flex flex-nowrap gap-2">
+                  <FaCcVisa className="h-6 w-6" />
+                  <FaCcMastercard className="h-6 w-6" />
+                  <FaCcDinersClub className="h-6 w-6" />
+               </div>
                <Button
                   className="font-bold"
                   color="primary"
