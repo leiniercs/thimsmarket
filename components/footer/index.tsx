@@ -48,6 +48,7 @@ export async function Footer() {
                   P.O. Box {contact.pobox}, {contact.emirate}, {contact.country}
                   .
                </span>
+               <span>{contact.phone}</span>
                <div className="mt-10 flex flex-nowrap gap-4">
                   {contact.socialMedia.map(
                      (socialMedia: SocialMediaDetails, index: number) => (
