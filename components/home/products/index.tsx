@@ -1,5 +1,5 @@
 import type { Product } from "@/types/product";
-import Head from "next/head";
+//import Head from "next/head";
 import {
    Card,
    CardBody,
@@ -84,49 +84,48 @@ export async function Products({
       category,
       Number(page || "0")
    );
-
+   /*
+   <Head key="products_jd_json">
+      <script
+         id="products_jd_json"
+         type="application/ld+json"
+         dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+               products.map((product: any) => ({
+                  "@context": "https://schema.org",
+                  "@type": "Product",
+                  name: product.title,
+                  description: product.description,
+                  image: `${process.env.NEXT_PUBLIC_URL_BASE}/images/products/${product.slug}.webp`,
+                  offers: {
+                     "@type": "Offer",
+                     price: product.price,
+                     priceCurrency: product.currency,
+                     availability: "https://schema.org/InStock"
+                  }
+               })),
+               null,
+               ""
+            )
+         }}
+      />
+   </Head>
+   */
    return (
-      <>
-         <Head key="products_jd_json">
-            <script
-               id="products_jd_json"
-               type="application/ld+json"
-               dangerouslySetInnerHTML={{
-                  __html: JSON.stringify(
-                     products.map((product: any) => ({
-                        "@context": "https://schema.org",
-                        "@type": "Product",
-                        name: product.title,
-                        description: product.description,
-                        image: `${process.env.NEXT_PUBLIC_URL_BASE}/images/products/${product.slug}.webp`,
-                        offers: {
-                           "@type": "Offer",
-                           price: product.price,
-                           priceCurrency: product.currency,
-                           availability: "https://schema.org/InStock"
-                        }
-                     })),
-                     null,
-                     ""
-                  )
-               }}
-            />
-         </Head>
-         <div className="flex flex-wrap justify-between gap-10">
-            <ProductsPagination
-               basePath={basePath}
-               page={Number(page || "0")}
-               pages={totalProducts}
-            />
-            {products.map((product: Product, index: number) => (
-               <ProductCard key={index} locale={locale} product={product} />
-            ))}
-            <ProductsPagination
-               basePath={basePath}
-               page={Number(page || "0")}
-               pages={totalProducts}
-            />
-         </div>
-      </>
+      <div className="flex flex-wrap justify-between gap-10">
+         <ProductsPagination
+            basePath={basePath}
+            page={Number(page || "0")}
+            pages={totalProducts}
+         />
+         {products.map((product: Product, index: number) => (
+            <ProductCard key={index} locale={locale} product={product} />
+         ))}
+         <ProductsPagination
+            basePath={basePath}
+            page={Number(page || "0")}
+            pages={totalProducts}
+         />
+      </div>
    );
 }

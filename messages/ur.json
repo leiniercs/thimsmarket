@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "وہ بہترین مارکیٹ پلیس جہاں ویب ڈیزائنرز اور ڈویلپرز منفرد ویب سائٹ ٹیمپلیٹس کو شیئر کرنے، بیچنے اور دریافت کرنے کے لیے جڑتے ہیں۔",
+      "keywords": "تھیمز مارکیٹ, تھیمز, مارکیٹ, ویب سائٹ تھیمز, تھیم, تھیمز, ویب سائٹ, ویب سائٹس, ویب ایپ, ویب ایپس, ویب ایپ, ویب ایپس"
+   },
+   "languages": {
+      "current-language": "موجودہ زبان",
+      "click-to-choose": "منتخب کرنے کیلئے کلک کریں",
+      "language-selection": "زبان کا انتخاب"
+   },
+   "header": {
+      "openMenu": "مینو کھولیں",
+      "closeMenu": "مینو بند کریں",
+      "logo": "لوگو",
+      "menuitems": {
+         "home": "ہوم",
+         "website_themes": "ویب سائٹ تھیمز",
+         "category": "زمرہ",
+         "ssg": "سرور سائیڈ جنریٹر",
+         "css": "سی ایس ایس",
+         "cms": "سی ایم ایس",
+         "dashboard": "ڈیش بورڈ",
+         "astro": "ایسٹرو",
+         "scss": "ایس سی ایس ایس",
+         "blog": "بلاگ",
+         "tailwind": "ٹیل ونڈ",
+         "business": "کاروبار",
+         "portfolio": "پورٹ فولیو",
+         "nextjs": " نیکسٹ جے ایس",
+         "documentation": "دستاویزیकरण",
+         "saas": "ایس اے اے ایس",
+         "markdown": "مارک ڈاؤن",
+         "boilerplate": "بوائلر پلیٹ",
+         "tina": "ٹینا",
+         "ecommerce": "ای کامرس",
+         "postcss": "پوسٹ سی ایس ایس",
+         "bulma": "بلما",
+         "bootstrap": "بوٹسٹریپ",
+         "staticcms": "اسٹییٹک سی ایم ایس",
+         "contentful": "کونٹینٹ فل",
+         "sanity": "سینٹی",
+         "cloudcannon": "کلاؤڈ کینن",
+         "starter": "اسٹارٹر",
+         "ghost": "گوسٹ",
+         "eleventy": "ایل ای ونٹی",
+         "decap": "ڈی کیپ",
+         "spinal": "اسپینل",
+         "stylus": "اسٹائل",
+         "gatsby": "گیٹس بی",
+         "chakra": "چکرا",
+         "datocms": "ڈیٹو سی ایم ایس",
+         "graphcms": "گراف سی ایم ایس",
+         "mui": "ایم یو آئی",
+         "flotiq": "فلوٹک",
+         "hexo": "ہیکسو",
+         "others": "دیگر",
+         "hugo": "ہوگو",
+         "jekyll": "جیکائل",
+         "custom": "اپنی مرضی کا",
+         "strapi": "اسٹریپی",
+         "prisma": "پرزما",
+         "landing": "لینڈنگ",
+         "cosmic": "کاسمک",
+         "builderio": "بلڈریو",
+         "buttercms": "بٹر سی ایم ایس",
+         "cosmic cms": "کاسمک سی ایم ایس",
+         "wix": "وکس",
+         "nuxtjs": "نیکسٹ جے ایس"
+      },
+      "light": "ہلکا",
+      "dark": "گہرا",
+      "current-theme": "موجودہ تھیم",
+      "click-to-toggle": "ٹوگل کرنے کیلئے کلک کریں",
+      "start": "شروع کریں",
+      "shopping_cart": {
+         "title": "خریداری کی ٹوکری",
+         "product": "پروڈکٹ",
+         "price": "قیمت",
+         "actions": "اعمال",
+         "total_before_discount": "ڈسکاؤنٹ سے پہلے کل",
+         "discount": "ڈسکاؤنٹ",
+         "total": "کل",
+         "checkout": "چیک آؤٹ"
+      }
+   },
+   "home": {
+      "metadata": { "title": "ہوم" },
+      "products": { "add-to-cart": "ٹوکری میں شامل کریں" }
+   },
+   "footer": {
+      "owned": "یہ سروس کی ملکیت ہے",
+      "company": "کمپنی",
+      "legal": {
+         "title": "قانونی",
+         "terms": "شرائط و ضوابط",
+         "privacy": "رازداری کی پالیسی",
+         "refunds": "واپسی کی پالیسی"
+      }
+   }
+}

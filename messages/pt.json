@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "O mercado definitivo onde designers e desenvolvedores web se conectam para compartilhar, vender e descobrir modelos de sites excepcionais.",
+      "keywords": "mercado thims, thims, mercado, temas de sites, tema, temas, site, sites, webapp, webapps, web app, web apps"
+   },
+   "languages": {
+      "current-language": "Idioma atual",
+      "click-to-choose": "Clique para escolher",
+      "language-selection": "Seleção de idioma"
+   },
+   "header": {
+      "openMenu": "Abrir menu",
+      "closeMenu": "Fechar menu",
+      "logo": "Logotipo",
+      "menuitems": {
+         "home": "Início",
+         "website_themes": "Temas de sites",
+         "category": "Categoria",
+         "ssg": "Gerador do lado do servidor",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "Painel de controle",
+         "astro": "Astro",
+         "scss": "SCSS",
+         "blog": "Blog",
+         "tailwind": "Tailwind",
+         "business": "Negócios",
+         "portfolio": "Portfólio",
+         "nextjs": "NextJS",
+         "documentation": "Documentação",
+         "saas": "SaaS",
+         "markdown": "Markdown",
+         "boilerplate": "Boilerplate",
+         "tina": "Tina",
+         "ecommerce": "eCommerce",
+         "postcss": "PostCSS",
+         "bulma": "Bulma",
+         "bootstrap": "Bootstrap",
+         "staticcms": "StaticCMS",
+         "contentful": "Contentful",
+         "sanity": "Sanity",
+         "cloudcannon": "CloudCannon",
+         "starter": "Iniciante",
+         "ghost": "Ghost",
+         "eleventy": "Eleventy",
+         "decap": "Decap",
+         "spinal": "Spinal",
+         "stylus": "Stylus",
+         "gatsby": "Gatsby",
+         "chakra": "Chakra",
+         "datocms": "DatoCMS",
+         "graphcms": "GraphCMS",
+         "mui": "Mui",
+         "flotiq": "Flotiq",
+         "hexo": "Hexo",
+         "others": "Outros",
+         "hugo": "Hugo",
+         "jekyll": "Jekyll",
+         "custom": "Personalizado",
+         "strapi": "Strapi",
+         "prisma": "Prisma",
+         "landing": "Landing Page",
+         "cosmic": "Cosmic",
+         "builderio": "Builderio",
+         "buttercms": "ButterCMS",
+         "cosmic cms": "Cosmic CMS",
+         "wix": "Wix",
+         "nuxtjs": "NuxtJS"
+      },
+      "light": "Claro",
+      "dark": "Escuro",
+      "current-theme": "Tema atual",
+      "click-to-toggle": "Clique para alternar",
+      "start": "Começar",
+      "shopping_cart": {
+         "title": "Carrinho de compras",
+         "product": "Produto",
+         "price": "Preço",
+         "actions": "Ações",
+         "total_before_discount": "Total antes do desconto",
+         "discount": "Desconto",
+         "total": "Total",
+         "checkout": "Finalizar compra"
+      }
+   },
+   "home": {
+      "metadata": { "title": "Início" },
+      "products": { "add-to-cart": "Adicionar ao carrinho" }
+   },
+   "footer": {
+      "owned": "Este serviço é propriedade da",
+      "company": "Empresa",
+      "legal": {
+         "title": "Legal",
+         "terms": "Termos & Condições",
+         "privacy": "Política de Privacidade",
+         "refunds": "Política de Reembolso"
+      }
+   }
+}

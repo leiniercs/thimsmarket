@@ -1,12 +1,12 @@
 {
    "metadata": {
       "description": "El mercado definitivo donde los diseñadores y desarrolladores web se conectan para compartir, vender y descubrir plantillas de sitios web excepcionales.",
-      "keywords": "thims market, thims, mercado, plantillas para sitios web, temas para sitios web, plantillas para páginas web, temas para páginas web, plantilla, plantillas, tema, temas, app web"
+      "keywords": "thims market, thims, market, website themes, theme, themes, website, websites, webapp, webapps, web app, web apps"
    },
    "languages": {
       "current-language": "Idioma actual",
-      "click-to-choose": "Clic para cambiar",
-      "language-selection": "Selección del idioma",
+      "click-to-choose": "Haz clic para elegir",
+      "language-selection": "Selección de idioma",
       "en": "English",
       "es": "Español"
    },
@@ -16,17 +16,17 @@
       "logo": "Logotipo",
       "menuitems": {
          "home": "Inicio",
-         "website_themes": "Temas para Sitios Web",
+         "website_themes": "Temas de sitios web",
          "category": "Categoría",
-         "ssg": "Generador desde el Servidor",
+         "ssg": "Generador del lado del servidor",
          "css": "CSS",
          "cms": "CMS",
-         "dashboard": "Pizarra",
+         "dashboard": "Panel de control",
          "astro": "Astro",
          "scss": "SCSS",
-         "blog": "Bitácora",
+         "blog": "Blog",
          "tailwind": "Tailwind",
-         "business": "Negocio",
+         "business": "Negocios",
          "portfolio": "Portafolio",
          "nextjs": "NextJS",
          "documentation": "Documentación",
@@ -42,7 +42,7 @@
          "contentful": "Contentful",
          "sanity": "Sanity",
          "cloudcannon": "CloudCannon",
-         "starter": "Principiante",
+         "starter": "Iniciador",
          "ghost": "Ghost",
          "eleventy": "Eleventy",
          "decap": "Decap",
@@ -58,10 +58,10 @@
          "others": "Otros",
          "hugo": "Hugo",
          "jekyll": "Jekyll",
-         "custom": "Custom",
+         "custom": "Personalizado",
          "strapi": "Strapi",
          "prisma": "Prisma",
-         "landing": "Página principal",
+         "landing": "Landing page",
          "cosmic": "Cosmic",
          "builderio": "Builderio",
          "buttercms": "ButterCMS",
@@ -72,7 +72,7 @@
       "light": "Claro",
       "dark": "Oscuro",
       "current-theme": "Tema actual",
-      "click-to-toggle": "Haz clic para alternar",
+      "click-to-toggle": "Haz clic para cambiar",
       "start": "Comenzar",
       "shopping_cart": {
          "title": "Carrito de compras",
@@ -87,11 +87,11 @@
    },
    "home": {
       "metadata": { "title": "Inicio" },
-      "products": { "add-to-cart": "Agregar al carro" }
+      "products": { "add-to-cart": "Agregar al carrito" }
    },
    "footer": {
-      "owned": "Éste servicio es propiedad de",
-      "company": "Compañía",
+      "owned": "Este servicio es propiedad de",
+      "company": "Empresa",
       "legal": {
          "title": "Legal",
          "terms": "Términos & Condiciones",

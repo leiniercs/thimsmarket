@@ -1,5 +1,6 @@
 "use client";
 import type { Selection } from "@nextui-org/react";
+import type { LocaleProps } from "@/components/common/locales";
 import { ReadonlyURLSearchParams, useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -41,15 +42,18 @@ export function LanguageSwitcher() {
                });
             }}
          >
-            {locales.map((value: string) => (
+            {locales.map((value: LocaleProps) => (
                <DropdownItem
-                  key={value}
+                  key={value.code}
+                  className="capitalize"
+                  dir={value.rtl ? "rtl" : ""}
                   startContent={
-                     <Avatar src={`/images/countries/${value}.svg`} />
+                     <Avatar src={`/images/countries/${value.code}.svg`} />
                   }
-               >
-                  {tLanguages(value)}
-               </DropdownItem>
+                  title={new Intl.DisplayNames(value.code, {
+                     type: "language"
+                  }).of(value.code)}
+               />
             ))}
          </DropdownMenu>
       </Dropdown>

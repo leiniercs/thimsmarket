@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "अंतिम बाजार जहां वेब डिज़ाइनर और डेवलपर असाधारण वेबसाइट टेम्पलेट साझा करने, बेचने और खोजने के लिए जुड़ते हैं।",
+      "keywords": "thims बाजार, thims, बाजार, वेबसाइट थीम, थीम, थीम, वेबसाइट, वेबसाइट, वेब ऐप, वेब ऐप, वेब ऐप, वेब ऐप"
+   },
+   "languages": {
+      "current-language": "वर्तमान भाषा",
+      "click-to-choose": "चुनने के लिए क्लिक करें",
+      "language-selection": "भाषा चयन"
+   },
+   "header": {
+      "openMenu": "मेनू खोलें",
+      "closeMenu": "मेनू बंद करें",
+      "logo": "लोगो",
+      "menuitems": {
+         "home": "होम",
+         "website_themes": "वेबसाइट थीम",
+         "category": "श्रेणी",
+         "ssg": "सर्वर-साइड जेनरेटर",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "डैशबोर्ड",
+         "astro": "एस्ट्रो",
+         "scss": "SCSS",
+         "blog": "ब्लॉग",
+         "tailwind": "टेलविंड",
+         "business": "व्यवसाय",
+         "portfolio": "पोर्टफोलियो",
+         "nextjs": "नेक्स्टजेएस",
+         "documentation": "दस्तावेज़ीकरण",
+         "saas": "सास",
+         "markdown": "मार्कडाउन",
+         "boilerplate": "बॉयलरप्लेट",
+         "tina": "टीना",
+         "ecommerce": "ई-कॉमर्स",
+         "postcss": "पोस्टसीएसएस",
+         "bulma": "बुल्मा",
+         "bootstrap": "बूटस्ट्रैप",
+         "staticcms": "स्टेटिकसीएमएस",
+         "contentful": "कंटेंटफुल",
+         "sanity": "सैनिटी",
+         "cloudcannon": "क्लाउडकैनन",
+         "starter": "स्टार्टर",
+         "ghost": "घोस्ट",
+         "eleventy": "एलेवेंटी",
+         "decap": "डीकैप",
+         "spinal": "स्पाइनल",
+         "stylus": "स्टाइलस",
+         "gatsby": "गैट्सबी",
+         "chakra": "चक्र",
+         "datocms": "डेटोसीएमएस",
+         "graphcms": "ग्राफसीएमएस",
+         "mui": "एमयूआई",
+         "flotiq": "फ्लोटीक",
+         "hexo": "हेक्सो",
+         "others": "अन्य",
+         "hugo": "ह्यूगो",
+         "jekyll": "जेकिल",
+         "custom": "कस्टम",
+         "strapi": "स्ट्रैपी",
+         "prisma": "प्रिज्मा",
+         "landing": "लैंडिंग",
+         "cosmic": "कॉस्मिक",
+         "builderio": "बिल्डरियो",
+         "buttercms": "बटरसीएमएस",
+         "cosmic cms": "कॉस्मिक CMS",
+         "wix": "विक्स",
+         "nuxtjs": "नक्सटजेएस"
+      },
+      "light": "हल्का",
+      "dark": "गहरा",
+      "current-theme": "वर्तमान थीम",
+      "click-to-toggle": "टॉगल करने के लिए क्लिक करें",
+      "start": "शुरू",
+      "shopping_cart": {
+         "title": "खरीदारी की टोकरी",
+         "product": "उत्पाद",
+         "price": "कीमत",
+         "actions": "क्रियाएँ",
+         "total_before_discount": "छूट से पहले कुल",
+         "discount": "छूट",
+         "total": "कुल",
+         "checkout": "चेक आउट"
+      }
+   },
+   "home": {
+      "metadata": { "title": "होम" },
+      "products": { "add-to-cart": "कार्ट में जोड़ें" }
+   },
+   "footer": {
+      "owned": "यह सेवा किसकी संपत्ति है",
+      "company": "कंपनी",
+      "legal": {
+         "title": "कानूनी",
+         "terms": "नियम & शर्तें",
+         "privacy": "गोपनीयता नीति",
+         "refunds": "वापसी नीति"
+      }
+   }
+}

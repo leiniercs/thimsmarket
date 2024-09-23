@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "网络设计师和开发者交流、销售和发现优秀网站模板的终极市场。",
+      "keywords": "thims 市场, thims, 市场, 网站主题, 主题, 主题, 网站, 网站, 网络应用程序, 网络应用程序, 网络应用程序, 网络应用程序"
+   },
+   "languages": {
+      "current-language": "当前语言",
+      "click-to-choose": "点击选择",
+      "language-selection": "语言选择"
+   },
+   "header": {
+      "openMenu": "打开菜单",
+      "closeMenu": "关闭菜单",
+      "logo": "图标",
+      "menuitems": {
+         "home": "首页",
+         "website_themes": "网站主题",
+         "category": "类别",
+         "ssg": "服务器端生成器",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "控制面板",
+         "astro": "Astro",
+         "scss": "SCSS",
+         "blog": "博客",
+         "tailwind": "Tailwind",
+         "business": "商业",
+         "portfolio": "作品集",
+         "nextjs": "NextJS",
+         "documentation": "文档",
+         "saas": "SaaS",
+         "markdown": "Markdown",
+         "boilerplate": "样板",
+         "tina": "Tina",
+         "ecommerce": "电子商务",
+         "postcss": "PostCSS",
+         "bulma": "Bulma",
+         "bootstrap": "Bootstrap",
+         "staticcms": "StaticCMS",
+         "contentful": "Contentful",
+         "sanity": "Sanity",
+         "cloudcannon": "CloudCannon",
+         "starter": "入门",
+         "ghost": "Ghost",
+         "eleventy": "Eleventy",
+         "decap": "Decap",
+         "spinal": "Spinal",
+         "stylus": "Stylus",
+         "gatsby": "Gatsby",
+         "chakra": "Chakra",
+         "datocms": "DatoCMS",
+         "graphcms": "GraphCMS",
+         "mui": "Mui",
+         "flotiq": "Flotiq",
+         "hexo": "Hexo",
+         "others": "其他",
+         "hugo": "Hugo",
+         "jekyll": "Jekyll",
+         "custom": "自定义",
+         "strapi": "Strapi",
+         "prisma": "Prisma",
+         "landing": "登录页",
+         "cosmic": "Cosmic",
+         "builderio": "Builderio",
+         "buttercms": "ButterCMS",
+         "cosmic cms": "Cosmic CMS",
+         "wix": "Wix",
+         "nuxtjs": "NuxtJS"
+      },
+      "light": "浅色",
+      "dark": "深色",
+      "current-theme": "当前主题",
+      "click-to-toggle": "点击切换",
+      "start": "开始",
+      "shopping_cart": {
+         "title": "购物车",
+         "product": "产品",
+         "price": "价格",
+         "actions": "操作",
+         "total_before_discount": "折扣前总计",
+         "discount": "折扣",
+         "total": "总计",
+         "checkout": "结账"
+      }
+   },
+   "home": {
+      "metadata": { "title": "首页" },
+      "products": { "add-to-cart": "添加到购物车" }
+   },
+   "footer": {
+      "owned": "本服务的所有者是",
+      "company": "公司",
+      "legal": {
+         "title": "法律",
+         "terms": "条款 & 条件",
+         "privacy": "隐私政策",
+         "refunds": "退款政策"
+      }
+   }
+}

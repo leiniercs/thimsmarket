@@ -1,5 +1,6 @@
-import { Type } from "@/types/product";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import type { Type } from "@/types/product";
+import { Suspense } from "react";
+import { getTranslations } from "next-intl/server";
 import {
    Image,
    Navbar,
@@ -19,8 +20,7 @@ interface CustomComponentProps {
 }
 
 export async function Header({ locale }: Readonly<CustomComponentProps>) {
-   unstable_setRequestLocale(locale);
-   const tHeader = await getTranslations("header");
+   const tHeader = await getTranslations({ locale, namespace: "header" });
    const menuItems: Type[] = await getTypes();
 
    return (
@@ -48,7 +48,9 @@ export async function Header({ locale }: Readonly<CustomComponentProps>) {
          </NavbarContent>
          <NavbarContent justify="end">
             <ButtonCart />
-            <LanguageSwitcher />
+            <Suspense>
+               <LanguageSwitcher />
+            </Suspense>
          </NavbarContent>
          <NavbarMenu>
             <NavigationItems items={menuItems} isMenuItems={true} />

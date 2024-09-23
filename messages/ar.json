@@ -1,0 +1,102 @@
+{
+   "metadata": {
+      "description": "سوق افتراضي حيث يتصل مصممو ومطورو الويب لمشاركة وبيع واكتشاف قوالب مواقع الويب الاستثنائية.",
+      "keywords": "سوق ثيمز, thims, سوق, ثيمات مواقع الويب, ثيم, ثيمات, موقع الكتروني, مواقع الكترونية, تطبيق ويب, تطبيقات ويب, تطبيق ويب, تطبيقات ويب"
+   },
+   "languages": {
+      "current-language": "اللغة الحالية",
+      "click-to-choose": "انقر للاختيار",
+      "language-selection": "اختيار اللغة",
+      "en": "الإنجليزية",
+      "es": "الإسبانية"
+   },
+   "header": {
+      "openMenu": "فتح القائمة",
+      "closeMenu": "إغلاق القائمة",
+      "logo": "الشعار",
+      "menuitems": {
+         "home": "الصفحة الرئيسية",
+         "website_themes": "ثيمات مواقع الويب",
+         "category": "الفئة",
+         "ssg": "مولد من جانب الخادم",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "لوحة التحكم",
+         "astro": "Astro",
+         "scss": "SCSS",
+         "blog": "المدونة",
+         "tailwind": "Tailwind",
+         "business": "الأعمال",
+         "portfolio": "المحفظة",
+         "nextjs": "NextJS",
+         "documentation": "التوثيق",
+         "saas": "SaaS",
+         "markdown": "Markdown",
+         "boilerplate": "Boilerplate",
+         "tina": "Tina",
+         "ecommerce": "التجارة الإلكترونية",
+         "postcss": "PostCSS",
+         "bulma": "Bulma",
+         "bootstrap": "Bootstrap",
+         "staticcms": "StaticCMS",
+         "contentful": "Contentful",
+         "sanity": "Sanity",
+         "cloudcannon": "CloudCannon",
+         "starter": "المبتدئ",
+         "ghost": "Ghost",
+         "eleventy": "Eleventy",
+         "decap": "Decap",
+         "spinal": "Spinal",
+         "stylus": "Stylus",
+         "gatsby": "Gatsby",
+         "chakra": "Chakra",
+         "datocms": "DatoCMS",
+         "graphcms": "GraphCMS",
+         "mui": "Mui",
+         "flotiq": "Flotiq",
+         "hexo": "Hexo",
+         "others": "أخرى",
+         "hugo": "Hugo",
+         "jekyll": "Jekyll",
+         "custom": "مخصص",
+         "strapi": "Strapi",
+         "prisma": "Prisma",
+         "landing": "صفحة الهبوط",
+         "cosmic": "Cosmic",
+         "builderio": "Builderio",
+         "buttercms": "ButterCMS",
+         "cosmic cms": "Cosmic CMS",
+         "wix": "Wix",
+         "nuxtjs": "NuxtJS"
+      },
+      "light": "فاتح",
+      "dark": "داكن",
+      "current-theme": "المظهر الحالي",
+      "click-to-toggle": "انقر للتبديل",
+      "start": "بدء",
+      "shopping_cart": {
+         "title": "سلة التسوق",
+         "product": "المنتج",
+         "price": "السعر",
+         "actions": "الإجراءات",
+         "total_before_discount": "الإجمالي قبل الخصم",
+         "discount": "الخصم",
+         "total": "الإجمالي",
+         "checkout": "الدفع"
+      }
+   },
+   "home": {
+      "metadata": { "title": "الصفحة الرئيسية" },
+      "products": { "add-to-cart": "أضف إلى السلة" }
+   },
+   "footer": {
+      "owned": "هذه الخدمة مملوكة لشركة",
+      "company": "الشركة",
+      "legal": {
+         "title": "القانونية",
+         "terms": "الشروط والأحكام",
+         "privacy": "سياسة الخصوصية",
+         "refunds": "سياسة الاسترجاع"
+      }
+   }
+}

@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "ওয়েব ডিজাইনার এবং ডেভেলপারদের জন্য  একটি  বিশেষ বাজার  যেখানে তারা   একত্রিত হয়ে   ব্যতিক্রমী ওয়েবসাইট টেমপ্লেট   শেয়ার, বিক্রয়  এবং   আবিষ্কার করতে পারে।",
+      "keywords": "thims বাজার, thims, বাজার, ওয়েবসাইট থিম, থিম, থিমসমূহ, ওয়েবসাইট, ওয়েবসাইটসমূহ, ওয়েব অ্যাপ, ওয়েব অ্যাপস, ওয়েব অ্যাপ, ওয়েব অ্যাপস"
+   },
+   "languages": {
+      "current-language": "বর্তমান ভাষা",
+      "click-to-choose": "পছন্দ করতে ক্লিক করুন",
+      "language-selection": "ভাষা নির্বাচন"
+   },
+   "header": {
+      "openMenu": "মেনু খুলুন",
+      "closeMenu": "মেনু বন্ধ করুন",
+      "logo": "লোগো",
+      "menuitems": {
+         "home": "হোম",
+         "website_themes": "ওয়েবসাইট থিম",
+         "category": "বিভাগ",
+         "ssg": "সার্ভার-সাইড জেনারেটর",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "ড্যাশবোর্ড",
+         "astro": "Astro",
+         "scss": "SCSS",
+         "blog": "ব্লগ",
+         "tailwind": "Tailwind",
+         "business": "ব্যবসা",
+         "portfolio": "পোর্টফোলিও",
+         "nextjs": "NextJS",
+         "documentation": "ডকুমেন্টেশন",
+         "saas": "SaaS",
+         "markdown": "Markdown",
+         "boilerplate": "Boilerplate",
+         "tina": "Tina",
+         "ecommerce": "ই-কমার্স",
+         "postcss": "PostCSS",
+         "bulma": "Bulma",
+         "bootstrap": "Bootstrap",
+         "staticcms": "StaticCMS",
+         "contentful": "Contentful",
+         "sanity": "Sanity",
+         "cloudcannon": "CloudCannon",
+         "starter": "শুরু",
+         "ghost": "Ghost",
+         "eleventy": "Eleventy",
+         "decap": "Decap",
+         "spinal": "Spinal",
+         "stylus": "Stylus",
+         "gatsby": "Gatsby",
+         "chakra": "Chakra",
+         "datocms": "DatoCMS",
+         "graphcms": "GraphCMS",
+         "mui": "Mui",
+         "flotiq": "Flotiq",
+         "hexo": "Hexo",
+         "others": "অন্যান্য",
+         "hugo": "Hugo",
+         "jekyll": "Jekyll",
+         "custom": "কাস্টম",
+         "strapi": "Strapi",
+         "prisma": "Prisma",
+         "landing": "ল্যান্ডিং",
+         "cosmic": "Cosmic",
+         "builderio": "Builderio",
+         "buttercms": "ButterCMS",
+         "cosmic cms": "Cosmic CMS",
+         "wix": "Wix",
+         "nuxtjs": "NuxtJS"
+      },
+      "light": "আলো",
+      "dark": "অন্ধকার",
+      "current-theme": "বর্তমান থিম",
+      "click-to-toggle": "টগল করতে ক্লিক করুন",
+      "start": "শুরু করুন",
+      "shopping_cart": {
+         "title": "শপিং কার্ট",
+         "product": "পণ্য",
+         "price": "দাম",
+         "actions": "কর্ম",
+         "total_before_discount": "ছাড়ের আগে মোট",
+         "discount": "ছাড়",
+         "total": "মোট",
+         "checkout": "চেক আউট"
+      }
+   },
+   "home": {
+      "metadata": { "title": "হোম" },
+      "products": { "add-to-cart": "কার্টে যোগ করুন" }
+   },
+   "footer": {
+      "owned": "এই পরিষেবাটির মালিক",
+      "company": "কোম্পানি",
+      "legal": {
+         "title": "আইনি",
+         "terms": "শর্তাবলী & শর্তাদি",
+         "privacy": "গোপনীয়তা নীতি",
+         "refunds": "রিফান্ড নীতি"
+      }
+   }
+}

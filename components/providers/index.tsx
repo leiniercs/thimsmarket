@@ -6,19 +6,11 @@ import { NextUIProvider } from "@nextui-org/react";
 import { AppStatesProvider } from "@/components/contexts/app_states";
 import { useRouter } from "@/components/common/navigation";
 
-type RootProps = {
-   children: ReactNode;
-};
-
 type LocaleProps = {
    locale: string;
    messages: AbstractIntlMessages;
    children: ReactNode;
 };
-
-export function RootProviders({ children }: Readonly<RootProps>) {
-   return children;
-}
 
 export function LocaleProviders({
    locale,

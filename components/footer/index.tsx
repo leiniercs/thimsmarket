@@ -9,9 +9,6 @@ export async function Footer() {
    const locale = await getLocale();
    const tHeader = await getTranslations("header");
    const tFooter = await getTranslations("footer");
-   const menuItemsCompany: NavMenuItem[] = [
-      { name: tHeader("menuitems.home"), href: "/" }
-   ];
    const menuItemsLegal: NavMenuItem[] = [
       {
          name: tFooter("legal.terms"),
@@ -65,14 +62,6 @@ export async function Footer() {
             </div>
             <Divider className="hidden lg:inline" orientation="vertical" />
             <Divider className="inline lg:hidden" orientation="horizontal" />
-            <div className="flex flex-col gap-3">
-               <span className="font-semibold uppercase">
-                  {tFooter("company")}
-               </span>
-               {menuItemsCompany.map((item: NavMenuItem, index: number) => (
-                  <Link key={index} item={item} />
-               ))}
-            </div>
             <div className="flex flex-col gap-3">
                <span className="font-semibold uppercase">
                   {tFooter("legal.title")}

@@ -6,9 +6,7 @@
    "languages": {
       "current-language": "Current language",
       "click-to-choose": "Click to choose",
-      "language-selection": "Language selection",
-      "en": "English",
-      "es": "Español"
+      "language-selection": "Language selection"
    },
    "header": {
       "openMenu": "Open menu",

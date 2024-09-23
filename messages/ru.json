@@ -1,0 +1,100 @@
+{
+   "metadata": {
+      "description": "Уникальный маркетплейс, где веб-дизайнеры и разработчики могут обмениваться, продавать и находить исключительные шаблоны веб-сайтов.",
+      "keywords": "thims market, thims, рынок, темы для веб-сайтов, тема, темы, веб-сайт, веб-сайты, веб-приложение, веб-приложения, веб-приложение, веб-приложения"
+   },
+   "languages": {
+      "current-language": "Текущий язык",
+      "click-to-choose": "Нажмите, чтобы выбрать",
+      "language-selection": "Выбор языка"
+   },
+   "header": {
+      "openMenu": "Открыть меню",
+      "closeMenu": "Закрыть меню",
+      "logo": "Логотип",
+      "menuitems": {
+         "home": "Главная",
+         "website_themes": "Темы веб-сайтов",
+         "category": "Категория",
+         "ssg": "Генератор статических сайтов",
+         "css": "CSS",
+         "cms": "CMS",
+         "dashboard": "Панель управления",
+         "astro": "Astro",
+         "scss": "SCSS",
+         "blog": "Блог",
+         "tailwind": "Tailwind",
+         "business": "Бизнес",
+         "portfolio": "Портфолио",
+         "nextjs": "NextJS",
+         "documentation": "Документация",
+         "saas": "SaaS",
+         "markdown": "Markdown",
+         "boilerplate": "Шаблон",
+         "tina": "Tina",
+         "ecommerce": "Электронная коммерция",
+         "postcss": "PostCSS",
+         "bulma": "Bulma",
+         "bootstrap": "Bootstrap",
+         "staticcms": "StaticCMS",
+         "contentful": "Contentful",
+         "sanity": "Sanity",
+         "cloudcannon": "CloudCannon",
+         "starter": "Стартер",
+         "ghost": "Ghost",
+         "eleventy": "Eleventy",
+         "decap": "Decap",
+         "spinal": "Spinal",
+         "stylus": "Stylus",
+         "gatsby": "Gatsby",
+         "chakra": "Chakra",
+         "datocms": "DatoCMS",
+         "graphcms": "GraphCMS",
+         "mui": "Mui",
+         "flotiq": "Flotiq",
+         "hexo": "Hexo",
+         "others": "Другие",
+         "hugo": "Hugo",
+         "jekyll": "Jekyll",
+         "custom": "Пользовательский",
+         "strapi": "Strapi",
+         "prisma": "Prisma",
+         "landing": "Посадочная страница",
+         "cosmic": "Cosmic",
+         "builderio": "Builderio",
+         "buttercms": "ButterCMS",
+         "cosmic cms": "Cosmic CMS",
+         "wix": "Wix",
+         "nuxtjs": "NuxtJS"
+      },
+      "light": "Светлая",
+      "dark": "Темная",
+      "current-theme": "Текущая тема",
+      "click-to-toggle": "Нажмите, чтобы переключить",
+      "start": "Начать",
+      "shopping_cart": {
+         "title": "Корзина",
+         "product": "Товар",
+         "price": "Цена",
+         "actions": "Действия",
+         "total_before_discount": "Итого до скидки",
+         "discount": "Скидка",
+         "total": "Итого",
+         "checkout": "Оформить заказ"
+      }
+   },
+   "home": {
+      "metadata": { "title": "Главная" },
+      "products": { "add-to-cart": "Добавить в корзину" }
+   },
+   "footer": {
+      "owned": "Этот сервис является собственностью",
+      "company": "Компания",
+      "legal": {
+         "title": "Правовая информация",
+         "terms": "Условия & Положения",
+         "privacy": "Политика конфиденциальности",
+         "refunds": "Политика возврата"
+      }
+   }
+}
