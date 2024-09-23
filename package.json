@@ -14,13 +14,14 @@
    },
    "dependencies": {
       "dotenv": "^16",
-      "next": "14.2.5",
+      "next": "^14",
       "react": "^18",
       "react-dom": "^18"
    },
    "devDependencies": {
       "@nextui-org/react": "^2",
       "@types/jsonwebtoken": "^9",
+      "@types/negotiator": "^0",
       "@types/node": "^20",
       "@types/react": "^18",
       "@types/react-dom": "^18",
@@ -28,7 +29,7 @@
       "bcrypt": "^5",
       "cssnano": "^7.0.4",
       "eslint": "^8",
-      "eslint-config-next": "14.2.5",
+      "eslint-config-next": "^14",
       "ethers": "^6",
       "jsonwebtoken": "^9",
       "mongodb": "^6",
