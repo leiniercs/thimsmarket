@@ -12,13 +12,14 @@ import {
    DropdownTrigger
 } from "@nextui-org/react";
 import { FaLanguage } from "react-icons/fa6";
-import { useRouter } from "@/components/common/navigation";
 import { locales } from "@/components/common/locales";
+import { useRouter, usePathname } from "@/components/common/navigation";
 
 export function LanguageSwitcher() {
    const locale = useLocale();
-   const tLanguages = useTranslations("languages");
+   const pathname = usePathname();
    const router = useRouter();
+   const tLanguages = useTranslations("languages");
    const rawSearchParams: ReadonlyURLSearchParams = useSearchParams();
    let searchParams: string =
       rawSearchParams.size > 0 ? `?${rawSearchParams.toString()}` : "";
@@ -37,7 +38,7 @@ export function LanguageSwitcher() {
             selectionMode="single"
             selectedKeys={[`${locale}`]}
             onSelectionChange={(keys: Selection) => {
-               router.push(`/${searchParams}`, {
+               router.push(`/${pathname}${searchParams}`, {
                   locale: Array.from(keys)[0] as string
                });
             }}
