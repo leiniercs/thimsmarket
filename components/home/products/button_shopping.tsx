@@ -1,4 +1,5 @@
 "use client";
+import type { ExchangeRate } from "@/types/exchange_rate";
 import type { Product } from "@/types/product";
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
@@ -38,6 +39,7 @@ export function ButtonShopping({ product }: Readonly<CustomComponentProps>) {
       );
 
       if (newOrder.products.length > 0) {
+         newOrder.currency = newOrder.products[0].currency;
          newOrder.total = Number(
             Number(
                newOrder.products.reduce(
@@ -53,6 +55,7 @@ export function ButtonShopping({ product }: Readonly<CustomComponentProps>) {
          );
          newOrder.total -= newOrder.discount;
       } else {
+         newOrder.currency = "USD";
          newOrder.discount = 0;
          newOrder.total = 0;
       }

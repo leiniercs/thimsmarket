@@ -1,6 +1,8 @@
 import type { Document, WithId } from "mongodb";
 import type { Category, Type, Product } from "@/types/product";
+import type { ExchangeRate } from "@/types/exchange_rate";
 import { dbClient } from "@/components/common/database";
+import { getExchangeRates } from "@/components/common/exchange_rate";
 
 export async function getTypes(): Promise<Type[]> {
    const results: Type[] = [];
@@ -108,6 +110,7 @@ export async function getProducts(
    category?: string,
    page?: number
 ): Promise<Array<Product>> {
+   const currencyAED: ExchangeRate = await getExchangeRates("AED");
    const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
    const tableThimsMarketProducts = dbThimsMarket.collection(
       process.env.DB_TABLE_PRODUCTS
@@ -157,7 +160,7 @@ export async function getProducts(
       slug: row.slug,
       title: row.title,
       description: row.description,
-      price: row.price,
-      currency: row.currency
+      price: row.price * currencyAED.rate,
+      currency: currencyAED.currency
    }));
 }

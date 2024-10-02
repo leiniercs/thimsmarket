@@ -1,11 +1,12 @@
 import type { JwtPayload } from "jsonwebtoken";
-import type { WithId, Document, InsertOneResult } from "mongodb";
-import type { Order } from "@/types/order";
+import type { InsertOneResult } from "mongodb";
 import type { Product } from "@/types/product";
+import type { ExchangeRate } from "@/types/exchange_rate";
 import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { dbClient } from "@/components/common/database";
 import { decodeJWT } from "@/components/common/jwt";
+import { getExchangeRates } from "@/components/common/exchange_rate";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
    try {
@@ -20,23 +21,20 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
          return NextResponse.json({ error: true }, { status: 400 });
       }
 
-      const dbThimsMarket = dbClient.db(
-         process.env.DB_THIMS_MARKET_DATABASE as string
-      );
+      const currencyAED: ExchangeRate = await getExchangeRates("AED");
+      const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
       const tableThimsMarketProducts = dbThimsMarket.collection(
-         process.env.DB_TABLE_PRODUCTS as string
+         process.env.DB_TABLE_PRODUCTS
       );
       const tableThimsMarketOrders = dbThimsMarket.collection(
-         process.env.DB_TABLE_ORDERS as string
+         process.env.DB_TABLE_ORDERS
       );
       const tableThimsMarketOrderProducts = dbThimsMarket.collection(
-         process.env.DB_TABLE_ORDER_PRODUCTS as string
+         process.env.DB_TABLE_ORDER_PRODUCTS
       );
-      const dbSDLPlatforms = dbClient.db(
-         process.env.DB_SDL_PLATFORMS_DATABASE as string
-      );
+      const dbSDLPlatforms = dbClient.db(process.env.DB_SDL_PLATFORMS_DATABASE);
       const tableSDLPlatformsOrders = dbSDLPlatforms.collection(
-         process.env.DB_TABLE_ORDERS as string
+         process.env.DB_TABLE_ORDERS
       );
       let dbOrderInsertOneResult: InsertOneResult;
       let dbOrderProductInsertOneResult: InsertOneResult;
@@ -89,8 +87,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
             orderId: thimsMarketOrderId,
             paid: false,
             cancelled: false,
-            paymentGatewayResponse: {},
-            billing: {},
             creationDate: new Date()
          });
 

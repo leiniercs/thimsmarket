@@ -1,6 +1,7 @@
 "use client";
 import type { Product } from "@/types/product";
-import { useCallback, useContext, useMemo, useState } from "react";
+import type { ExchangeRate } from "@/types/exchange_rate";
+import { useCallback, useContext, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
    Badge,

@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import type { ExchangeRate } from "@/types/exchange_rate";
 //import Head from "next/head";
 import {
    Card,
@@ -10,6 +11,7 @@ import {
 import { getProducts, getProductsCount } from "@/components/common/products";
 import { ProductsPagination } from "@/components/home/products/pagination";
 import { ButtonShopping } from "@/components/home/products/button_shopping";
+import { getExchangeRates } from "@/components/common/exchange_rate";
 
 interface CustomComponentProps {
    locale: string;
