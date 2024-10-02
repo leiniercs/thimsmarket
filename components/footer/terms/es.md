@@ -82,11 +82,11 @@ Para obtener más detalles, consulte nuestra Política de reembolsos: https://ww
 
 ## SECCIÓN 8 - MÉTODOS DE PAGO
 
-Los Productos y Servicios proporcionados pueden adquirirse en línea a través de nuestra Página de Pago (https://pay.thims.market). El Usuario debe introducir información de pago precisa para poder realizar una compra exitosa a través de los métodos de pago admitidos.
+Los productos ofrecidos se pueden comprar en línea a través de nuestra página de pago (https://pay.thims.market). El usuario debe introducir la información de pago correcta para poder realizar una compra exitosa a través de los métodos de pago admitidos.
 
-Los Productos y Servicios pueden adquirirse con una tarjeta de débito/crédito válida de Visa, Mastercard o Dinners Club en una de las siguientes monedas: AED, AUD, BHD, CAD, DKK, EGP, EUR, GBP, HKD, INR, JPY, JOD, KWD, LBP, LKR, MAD, MYR, NGN, OMR, PHP, PEN, PKR, QAR, SGD, SEK, SAR, THB, TZS, TRY, USD, UGX, XOF y ZAR.
+Los productos se pueden comprar con una tarjeta de débito o crédito válida de Visa o Mastercard en la moneda AED. El precio y la moneda que se muestran en la página de pago serán los mismos que aparecen impresos en el recibo de transacción y el monto cargado a la tarjeta se mostrará en la moneda de su tarjeta.
 
-Se recomienda que los titulares de tarjetas conserven copias de los registros de transacciones y cumplan con las políticas y normas del comerciante.
+Es recomendable que los titulares de tarjetas conserven copias de los registros de transacciones y respeten las políticas y reglas del comerciante.
 
 ## SECCIÓN 9 - ENLACES DE TERCEROS
 

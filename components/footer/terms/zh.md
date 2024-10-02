@@ -82,11 +82,11 @@
 
 ## 第 8 部分 - 付款方式
 
-可通过我们的付款页面 (https://pay.thims.market) 在线购买所提供的产品和服务。用户需要输入准确的付款信息，才能通过支持的付款方式成功购买。
+所提供的产品可通过我们的支付页面 (https://pay.thims.market) 在线购买。用户需要输入准确的支付信息，才能通过支持的支付方式成功购买。
 
-可使用 Visa、Mastercard 或 Dinners Club 的有效借记卡/信用卡以下列货币之一购买产品和服务：AED、AUD、BHD、CAD、DKK、EGP、EUR、GBP、HKD、INR、JPY、JOD、KWD、LBP、LKR、MAD、MYR、NGN、OMR、PHP、PEN、PKR、QAR、SGD、SEK、SAR、THB、TZS、TRY、USD、UGX、XOF 和 ZAR。
+可以使用 Visa 或 Mastercard 的有效借记卡/信用卡以 AED 货币购买产品。结账页面显示的价格和货币与交易收据上印刷的价格和货币相同，卡上收取的金额将以您的卡货币显示。
 
-建议持卡人必须保留交易记录的副本并遵守商家政策和规则。
+建议持卡人必须保留交易记录副本并遵守商家政策和规则。
 
 ## 第 9 节 - 第三方链接
 

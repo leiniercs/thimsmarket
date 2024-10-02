@@ -56,7 +56,7 @@ We do not warrant that the quality of any Products, Services, information, or ot
 
 ## SECTION 6 - PRODUCT PURCHASING
 
-In order to purchase a Product from one or our Services, the Client must visit the Service's Website, explore the Products offered there, add the wanted Products to the cart and when the Client is ready to purchase them, the Client must review the cart to see the names, prices, currency, accepted cards and proceed to click the Checkout button.
+In order to purchase a Product, the Client must visit the Service's Website, explore the Products offered there, add the wanted Products to the cart and when the Client is ready to purchase them, the Client must review the cart to see the names, prices, currency, accepted cards and proceed to click the Checkout button.
 
 Once clicked the Checkout button, the Client will be redirected to the {contact.company} Payment Page (https://pay.thims.market) in which the Client will be able to review once again the desired products' names, quantities, prices, currencies, totals, discounts and the accepted cards in the Order Summary card.
 
@@ -82,9 +82,9 @@ For more details, please review our Refund Policy: https://www.thims.market/refu
 
 ## SECTION 8 - PAYMENT METHODS
 
-The Products and Services provided can be purchased online via our Payment Page (https://pay.thims.market). The User need to introduce accurate payment information in order to execute a successful purchase through the supported payment methods.
+The Products provided can be purchased online via our Payment Page (https://pay.thims.market). The User need to introduce accurate payment information in order to execute a successful purchase through the supported payment methods.
 
-The Products and Services can be purchased by a valid debit/credit card from Visa, Mastercard or Dinners Club in one of the next currencies: AED, AUD, BHD, CAD, DKK, EGP, EUR, GBP, HKD, INR, JPY, JOD, KWD, LBP, LKR, MAD, MYR, NGN, OMR, PHP, PEN, PKR, QAR, SGD, SEK, SAR, THB, TZS, TRY, USD, UGX, XOF and ZAR.
+The Products can be purchased using a valid debit/credit card from Visa or Mastercard in the currency AED. The displayed price and currency at the checkout page, will be the same price and currency printed on the Transaction Receipt and the amount charged to the card will be shown in your card currency.
 
 It is advisable that cardholders must retain copies of transaction records and adhere to merchant policies and rules.
 
