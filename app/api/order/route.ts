@@ -21,7 +21,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
          return NextResponse.json({ error: true }, { status: 400 });
       }
 
-      const currencyAED: ExchangeRate = await getExchangeRates("AED");
+      const currency: ExchangeRate = await getExchangeRates(
+         decodedJWT.currency
+      );
       const dbThimsMarket = dbClient.db(process.env.DB_THIMS_MARKET_DATABASE);
       const tableThimsMarketProducts = dbThimsMarket.collection(
          process.env.DB_TABLE_PRODUCTS
@@ -70,9 +72,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
                   slug: row.slug,
                   name: row.title,
                   quantity: 1,
-                  price: row.price,
-                  amount: row.price,
-                  currency: row.currency
+                  price: row.price * currency.rate,
+                  amount: row.price * currency.rate,
+                  currency: currency.currency
                });
 
             if (!dbOrderProductInsertOneResult.acknowledged) {
