@@ -1,3 +1,10 @@
+# Política de cancelación
+
+Debido a la naturaleza de los productos que se encuentran disponibles para su compra en el Sitio Web, existen algunas reglas que se aplican en relación a la cancelación de un pedido:
+
+-  Cancelación de pedidos: El Usuario es libre de explorar todos los productos del Sitio Web y agregarlos al Carrito. Al hacerlo, el sistema crea un Pedido con los productos agregados al Carrito. Ese Pedido puede cancelarse eliminando todos los productos del Carrito.
+-  Cancelación de compra: Debido a la naturaleza inmediata de la entrega de los productos, **no existe cancelación** del pago luego de una compra exitosa. En este caso, el Usuario está facultado para solicitar un reembolso a {contact.email} dentro de los 7 días posteriores a la fecha de compra. Este procedimiento se apega a la Política de reembolsos.
+
 # Política de Reembolsos
 
 Tienes 7 días para solicitar un reembolso después de pagar cualquier producto.

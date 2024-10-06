@@ -1,3 +1,10 @@
+# Cancellation policy
+
+Due to the nature of the products that are available for purchase in the Website, there are some rules that apply regarding to the cancellation of an order:
+
+-  Orders cancellation: The User is free to explore all products in the Website and add them to the Cart. By doing so, the system create an Order with the products added to the Cart. That Order can be cancelled by removing all the products from the Cart.
+-  Purchase cancellation: Due to the immediate nature of the products delivery, there is **no cancellation** of the payment after a successful purchase. In this case, the User is empowered to request a refund to {contact.email} within 7 days after the purchase date. This procedure adhere to the Refunds policy.
+
 # Refunds policy
 
 We have a 7-day return policy, which means you have 7 days after paying for any product to request a return.

@@ -1,3 +1,10 @@
+# Politique d'annulation
+
+En raison de la nature des produits disponibles à l'achat sur le site Web, certaines règles s'appliquent en ce qui concerne l'annulation d'une commande :
+
+-  Annulation de commande : l'utilisateur est libre d'explorer tous les produits du site Web et de les ajouter au panier. Ce faisant, le système crée une commande avec les produits ajoutés au panier. Cette commande peut être annulée en supprimant tous les produits du panier.
+-  Annulation d'achat : en raison de la nature immédiate de la livraison des produits, il n'y a **aucune annulation** du paiement après un achat réussi. Dans ce cas, l'utilisateur est habilité à demander un remboursement à {contact.email} dans les 7 jours suivant la date d'achat. Cette procédure est conforme à la politique de remboursement.
+
 # Politique de remboursement
 
 Vous disposez d'un délai de rétractation de 7 jours, ce qui signifie que vous avez 7 jours après le paiement de tout produit pour demander un retour.

@@ -1,3 +1,10 @@
+#Política de cancelamento
+
+Devido à natureza dos produtos que estão disponíveis para compra no Site, existem algumas regras que se aplicam relativamente ao cancelamento de uma encomenda:
+
+-  Cancelamento de encomendas: O Utilizador é livre de explorar todos os produtos do Site e adicioná-los ao Carrinho. Ao fazê-lo, o sistema cria uma Encomenda com os produtos adicionados ao Carrinho. Este Pedido pode ser cancelado removendo todos os produtos do Carrinho.
+-  Cancelamento de compra: Devido ao carácter imediato da entrega dos produtos, **não há lugar a cancelamento** do pagamento após o sucesso da compra. Neste caso, o Utilizador tem o direito de solicitar um reembolso à {contact.email} no prazo de 7 dias após a data da compra. Este procedimento segue a política de reembolsos.
+
 # Política de Reembolso
 
 Oferecemos uma política de devolução de 7 dias, o que significa que você tem 7 dias após o pagamento de qualquer produto para solicitar um reembolso.
