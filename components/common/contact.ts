@@ -27,7 +27,7 @@ export const contact: ContactDetails = {
 		{ icon: FaTelegram, url: "https://t.me/sdlplatforms" },
 		{
 			icon: FaWhatsapp,
-			url: "https://chat.whatsapp.com/DGWzyx97KwaC4x6rRvQ59W"
+			url: "https://whatsapp.com/channel/0029Van77Ev0QeabgNxQ4p00"
 		}
 	],
 	tradeLicenseNumber: "44236",
