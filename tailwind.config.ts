@@ -9,9 +9,6 @@ const config: Config = {
       "./app/**/*.{ts,tsx}"
    ],
    darkMode: "class",
-   theme: {
-      extend: {}
-   },
    plugins: [nextui()]
 };
 
